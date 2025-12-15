@@ -1,0 +1,471 @@
+---
+title: "미래를 이끌 산업분야"
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+library(plotly)
+library(scales)
+library(glue)
+
+# 테마 설정
+theme_set(theme_minimal(base_size = 12))
+```
+
+## 2019년~2025년 실업률 및 취업자 추이
+
+::: {.panel-tabset}
+
+### 20대 실업률 추이
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#| fig-width: 10
+#| fig-height: 6
+
+# 데이터 읽기 (한글 인코딩 처리)
+df_unemp <- read_csv("성_연령별_실업률_20251208101738.csv", 
+                     locale = locale(encoding = "EUC-KR"))
+
+# 20-29세 데이터만 추출
+df_20s <- df_unemp %>%
+  filter(grepl("20 - 29", 연령계층별))
+
+# 분기별 데이터 열 이름 선택
+quarter_cols_unemp <- colnames(df_unemp)[grepl("\\d{4}\\.\\d/4", colnames(df_unemp))]
+
+df_long_unemp <- df_20s %>%
+  select(성별, 연령계층별, all_of(quarter_cols_unemp)) %>%
+  pivot_longer(
+    cols = all_of(quarter_cols_unemp),
+    names_to = "분기",
+    values_to = "실업률"
+  ) %>%
+  mutate(
+    년도 = as.numeric(str_extract(분기, "^\\d{4}")),
+    분기번호 = as.numeric(str_extract(분기, "(?<=\\.)\\d(?=/4)")),
+    시점 = 년도 + (분기번호 - 1) * 0.25,
+    분기라벨 = paste0(년도, "년 ", 분기번호, "분기"),
+    성별_label = case_when(
+      성별 == "계" ~ "전체",
+      성별 == "남자" ~ "남성",
+      성별 == "여자" ~ "여성",
+      TRUE ~ 성별
+    )
+  ) %>%
+  arrange(시점)
+
+# 20대 실업률 추이 그래프
+plot_ly(data = df_long_unemp,
+        x = ~시점,
+        y = ~실업률,
+        color = ~성별_label,
+        type = 'scatter',
+        mode = 'lines+markers',
+        line = list(width = 2.5),
+        marker = list(size = 6),
+        hovertemplate = paste(
+          '<b>%{fullData.name}</b><br>',
+          '실업률: %{y:.1f}%',
+          '<extra></extra>'
+        ),
+        customdata = ~분기라벨) %>% 
+  layout(
+    title = list(
+      text = "<b>20대(20-29세) 실업률 추이</b><br><sub>2019년 1분기 ~ 2025년 3분기</sub>",
+      font = list(size = 18, family = "Malgun Gothic")
+    ),
+    xaxis = list(
+      title = "연도", 
+      tickformat = ".0f", 
+      dtick = 1,
+      gridcolor = 'rgba(200,200,200,0.3)'
+    ),
+    yaxis = list(
+      title = "실업률 (%)",
+      gridcolor = 'rgba(200,200,200,0.3)'
+    ),
+    hovermode = 'closest',
+    plot_bgcolor = 'rgba(240,240,240,0.3)',
+    paper_bgcolor = 'white',
+    font = list(family = "Malgun Gothic, sans-serif", size = 10),
+    legend = list(
+      title = list(text = "<b>성별</b>"), 
+      orientation = "v", 
+      x = 1.02, 
+      y = 1,
+      bgcolor = 'rgba(255,255,255,0.9)',
+      bordercolor = 'rgba(0,0,0,0.3)',
+      borderwidth = 1
+    ),
+    margin = list(l = 60, r = 120, t = 80, b = 60)
+  ) %>%
+  config(displayModeBar = TRUE, locale = 'ko')
+```
+
+### 정보통신업 취업자 추이
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#| fig-width: 10
+#| fig-height: 6
+
+# 데이터 읽기
+df_it <- read_csv("산업별_취업자_20251208132018.csv", 
+                  locale = locale(encoding = "EUC-KR"))
+
+# 분기별 데이터 열 이름 선택
+quarter_cols_it <- colnames(df_it)[grepl("\\d{4}\\.\\d/4", colnames(df_it))]
+
+df_long_it <- df_it %>%
+  select(산업별, all_of(quarter_cols_it)) %>%
+  filter(grepl("J.*정보통신", 산업별)) %>%
+  pivot_longer(
+    cols = all_of(quarter_cols_it),
+    names_to = "분기",
+    values_to = "취업자수"
+  ) %>%
+  mutate(
+    년도 = as.numeric(str_extract(분기, "^\\d{4}")),
+    분기번호 = as.numeric(str_extract(분기, "(?<=\\.)\\d(?=/4)")),
+    시점 = 년도 + (분기번호 - 1) * 0.25,
+    분기라벨 = paste0(년도, "년 ", 분기번호, "분기")
+  ) %>%
+  arrange(시점)
+
+# 정보통신업 취업자 수 추이 그래프
+plot_ly(data = df_long_it,
+        x = ~시점,
+        y = ~취업자수,
+        type = 'scatter',
+        mode = 'lines+markers',
+        line = list(width = 2.5, color = '#1f77b4'),
+        marker = list(size = 6, color = '#1f77b4'),
+        name = '정보통신업',
+        hovertemplate = paste(
+          '<b>정보통신업</b><br>',
+          '시점: %{customdata[0]}<br>',
+          '취업자 수: %{y:,.0f}천명',
+          '<extra></extra>'
+        ),
+        customdata = ~분기라벨) %>%
+  layout(
+    title = list(
+      text = "<b>정보통신업 취업자 수 추이</b><br><sub>2019년 1분기 ~ 2025년 3분기</sub>",
+      font = list(size = 18, family = "Malgun Gothic")
+    ),
+    xaxis = list(
+      title = "연도", 
+      tickformat = ".0f", 
+      dtick = 1,
+      gridcolor = 'rgba(200,200,200,0.3)'
+    ),
+    yaxis = list(
+      title = "취업자 수 (천명)", 
+      separatethousands = TRUE,
+      gridcolor = 'rgba(200,200,200,0.3)'
+    ),
+    hovermode = 'x unified',
+    plot_bgcolor = 'rgba(240,240,240,0.3)',
+    paper_bgcolor = 'white',
+    font = list(family = "Malgun Gothic, sans-serif", size = 10),
+    showlegend = FALSE,
+    margin = list(l = 60, r = 60, t = 80, b = 60)
+  ) %>%
+  config(displayModeBar = TRUE, locale = 'ko')
+```
+
+:::
+
+
+## 데이터 산업 분야 인력 부족률
+
+::: {.panel-tabset}
+
+### 인력 부족률 추이
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#| fig-width: 10
+#| fig-height: 6
+
+# 데이터 읽기 (skip=1로 첫 번째 헤더 행 건너뛰기)
+df_raw <- read_csv("향후_5년_내_데이터산업의_데이터직무_인력_부족률_20251208145057.csv",
+                   locale = locale(encoding = "EUC-KR"),
+                   skip = 1)  # 첫 번째 헤더 행 건너뛰기
+
+# 열 이름 정리
+colnames(df_raw)[1] <- "직무"
+
+# 두 번째 열부터는 산업구분_연도 형태로 되어 있음
+# 각 연도마다 4개의 산업구분이 있음 (전체, 데이터 처리, 데이터 구축, 데이터 판매)
+
+# 연도 정보를 별도로 읽기
+year_header <- read_lines("향후_5년_내_데이터산업의_데이터직무_인력_부족률_20251208145057.csv",
+                          locale = locale(encoding = "EUC-KR"),
+                          n_max = 1)
+years <- str_split(year_header, ",")[[1]][-1]  # 첫 컬럼 제외
+years <- as.integer(years)
+
+# 산업구분 정보
+industry_header <- read_lines("향후_5년_내_데이터산업의_데이터직무_인력_부족률_20251208145057.csv",
+                             locale = locale(encoding = "EUC-KR"),
+                             skip = 1,
+                             n_max = 1)
+industries <- str_split(industry_header, ",")[[1]][-1]
+
+# 데이터 재구조화
+df_long <- df_raw %>%
+  select(-1) %>%  # 직무 열 제외
+  t() %>%  # 전치
+  as.data.frame() %>%
+  mutate(
+    연도 = years,
+    산업구분 = industries
+  )
+
+# 열 이름을 직무명으로 설정
+colnames(df_long)[1:(ncol(df_long)-2)] <- df_raw$직무
+
+# Long 형식으로 변환
+df_long <- df_long %>%
+  pivot_longer(
+    cols = -c(연도, 산업구분),
+    names_to = "직무",
+    values_to = "부족률"
+  ) %>%
+  mutate(
+    부족률 = as.numeric(부족률)
+  )
+
+# 평균 데이터만 추출 (전체 산업구분)
+df_avg <- df_long %>%
+  filter(직무 == "평균", 산업구분 == "전체") %>%
+  group_by(연도) %>%
+  summarise(부족률 = mean(부족률, na.rm = TRUE), .groups = 'drop')
+
+# 라인 차트
+plot_ly(
+  data = df_avg,
+  x = ~연도,
+  y = ~부족률,
+  type = 'scatter',
+  mode = 'lines+markers',
+  line = list(color = '#FF6B6B', width = 4),
+  marker = list(size = 10, color = '#FF6B6B'),
+  text = ~paste0(round(부족률, 1), "%"),
+  hovertemplate = paste(
+    '<b>%{x}년</b><br>',
+    '인력 부족률: <b>%{y:.1f}%</b><br>',
+    '<extra></extra>'
+  )
+) %>%
+  layout(
+    title = list(
+      text = "<b>데이터 산업 인력 부족률 추이</b>",
+      font = list(size = 20, family = "Malgun Gothic", color = "#2C3E50")
+    ),
+    xaxis = list(
+      title = "<b>연도</b>",
+      dtick = 1,
+      gridcolor = 'rgba(200,200,200,0.3)',
+      titlefont = list(size = 14)
+    ),
+    yaxis = list(
+      title = "<b>인력 부족률 (%)</b>",
+      gridcolor = 'rgba(200,200,200,0.3)',
+      range = c(0, max(df_avg$부족률, na.rm = TRUE) + 3),
+      titlefont = list(size = 14)
+    ),
+    plot_bgcolor = 'rgba(240,245,250,0.8)',
+    paper_bgcolor = 'white',
+    font = list(family = "Malgun Gothic, sans-serif", size = 12),
+    margin = list(l = 80, r = 50, t = 100, b = 80)
+  ) %>%
+  config(displayModeBar = FALSE, locale = 'ko')
+```
+
+### 직무별 부족률
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#| fig-width: 10
+#| fig-height: 7
+
+# 직무별 데이터 (평균 제외, 전체 산업구분만)
+df_jobs <- df_long %>%
+  filter(직무 != "평균", 산업구분 == "전체") %>%
+  group_by(연도, 직무) %>%
+  summarise(부족률 = mean(부족률, na.rm = TRUE), .groups = 'drop')
+
+# 애니메이션 막대 차트
+plot_ly(
+  data = df_jobs,
+  x = ~부족률,
+  y = ~reorder(직무, 부족률),
+  frame = ~연도,
+  type = 'bar',
+  orientation = 'h',
+  marker = list(
+    color = ~부족률,
+    colorscale = list(
+      c(0, 'rgb(255,245,235)'),
+      c(0.5, 'rgb(254,201,129)'),
+      c(1, 'rgb(227,74,51)')
+    ),
+    showscale = FALSE
+  ),
+  text = ~paste0(round(부족률, 1), "%"),
+  textposition = 'outside',
+  hovertemplate = paste(
+    '<b>%{y}</b><br>',
+    '인력 부족률: <b>%{x:.1f}%</b><br>',
+    '<extra></extra>'
+  )
+) %>%
+  layout(
+    title = list(
+      text = "<b>데이터 직무별 인력 부족률</b>",
+      font = list(size = 20, family = "Malgun Gothic", color = "#2C3E50")
+    ),
+    xaxis = list(
+      title = "<b>인력 부족률 (%)</b>",
+      range = c(0, max(df_jobs$부족률, na.rm = TRUE) + 5),
+      gridcolor = 'rgba(200,200,200,0.3)',
+      titlefont = list(size = 14)
+    ),
+    yaxis = list(
+      title = "",
+      titlefont = list(size = 14)
+    ),
+    plot_bgcolor = 'rgba(240,245,250,0.8)',
+    paper_bgcolor = 'white',
+    font = list(family = "Malgun Gothic, sans-serif", size = 12),
+    margin = list(l = 180, r = 80, t = 100, b = 120)
+  ) %>%
+  animation_opts(
+    frame = 500,
+    transition = 300,
+    easing = "elastic",
+    redraw = FALSE
+  ) %>%
+  animation_slider(
+    currentvalue = list(
+      prefix = "연도: ",
+      font = list(size = 16, color = "#E74C3C")
+    ),
+    pad = list(t = 50)
+  ) %>%
+  config(displayModeBar = FALSE, locale = 'ko')
+```
+
+### 2024년 현황
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#| fig-width: 10
+#| fig-height: 7
+
+# 2024년 데이터
+df_2024 <- df_jobs %>%
+  filter(연도 == 2024) %>%
+  arrange(desc(부족률))
+
+# 2024년 막대 차트
+plot_ly(
+  data = df_2024,
+  y = ~reorder(직무, 부족률),
+  x = ~부족률,
+  type = 'bar',
+  orientation = 'h',
+  marker = list(
+    color = ~부족률,
+    colorscale = list(
+      c(0, 'rgb(255,245,235)'),
+      c(0.3, 'rgb(254,201,129)'),
+      c(0.6, 'rgb(241,128,74)'),
+      c(1, 'rgb(227,74,51)')
+    ),
+    line = list(color = 'rgb(8,48,107)', width = 1.5)
+  ),
+  text = ~paste0("<b>", round(부족률, 1), "%</b>"),
+  textposition = 'outside',
+  textfont = list(size = 14, color = '#2C3E50'),
+  hovertemplate = paste(
+    '<b>%{y}</b><br>',
+    '인력 부족률: <b>%{x:.1f}%</b><br>',
+    '<extra></extra>'
+  )
+) %>%
+  layout(
+    title = list(
+      text = "<b>2024년 데이터 직무별 인력 부족률</b>",
+      font = list(size = 20, family = "Malgun Gothic", color = "#2C3E50")
+    ),
+    xaxis = list(
+      title = "<b>인력 부족률 (%)</b>",
+      range = c(0, max(df_2024$부족률, na.rm = TRUE) + 5),
+      gridcolor = 'rgba(200,200,200,0.3)',
+      titlefont = list(size = 14)
+    ),
+    yaxis = list(
+      title = "",
+      titlefont = list(size = 14)
+    ),
+    plot_bgcolor = 'rgba(240,245,250,0.8)',
+    paper_bgcolor = 'white',
+    font = list(family = "Malgun Gothic, sans-serif", size = 13),
+    margin = list(l = 180, r = 80, t = 120, b = 80)
+  ) %>%
+  config(displayModeBar = FALSE, locale = 'ko')
+```
+
+:::
+
+### 데이터 산업 분야 주요 발견점
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+latest_year <- max(df_avg$연도, na.rm = TRUE)
+latest_rate <- df_avg %>% filter(연도 == latest_year) %>% pull(부족률)
+first_year <- min(df_avg$연도, na.rm = TRUE)
+first_rate <- df_avg %>% filter(연도 == first_year) %>% pull(부족률)
+avg_rate <- mean(df_avg$부족률, na.rm = TRUE)
+
+if(nrow(df_2024) > 0) {
+  top_job <- df_2024$직무[1]
+  top_rate <- df_2024$부족률[1]
+  
+  cat(paste0(
+    "- **", latest_year, "년 기준 전체 평균 인력 부족률**: ", round(latest_rate, 1), "%\n",
+    "- **", first_year, "~", latest_year, "년 평균**: ", round(avg_rate, 1), "%\n",
+    "- **가장 부족한 직무**: ", top_job, " (", round(top_rate, 1), "%)\n",
+    "- **증가 추세**: ", first_year, "년 ", round(first_rate, 1), "% → ", 
+    latest_year, "년 ", round(latest_rate, 1), "% (", 
+    round(latest_rate - first_rate, 1), "%p 변화)\n"
+  ))
+}
+```
+
+
+
+---
+
+## 탐색해보기🤔 
+
+::: {.panel-tabset}
+
+### 질문 1
+**여러분이 관심있는 직종의 수요는 어떤가요?**
+
+여러분의 생각을 적어보세요:
+<textarea style="width:100%; height:100px; padding:10px; border:2px solid #ddd; border-radius:5px;" placeholder="내 생각을 여기에 적어보세요..."></textarea>
+
+### 질문 2
+**여러분이 관심있는 직종의 수요에 영향을 미치는 요인은 어떤 게 있을까요?**
+
+여러분의 생각을 적어보세요:
+<textarea style="width:100%; height:100px; padding:10px; border:2px solid #ddd; border-radius:5px;" placeholder="내 생각을 여기에 적어보세요..."></textarea>
+
+:::
+
+---
+
+

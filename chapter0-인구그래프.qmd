@@ -1,0 +1,348 @@
+---
+title: "인구그래프"
+subtitle: "현재 그리고 미래 우리나라의 인구 동향 알아보기"
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+# 필요한 라이브러리 로드
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(ggplot2)
+  library(tidyr)
+  library(plotly)
+  library(tidyverse)
+  library(stringr)
+  library(readr)
+})
+```
+
+## 인구 그래프
+
+::: {.panel-tabset}
+
+### 인구피라미드
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#| fig-width: 10
+#| fig-height: 7
+
+# 1) CSV 읽기 (KOSIS/Excel 저장본은 CP949일 가능성이 큼)
+path <- "성_및_연령별_추계인구_1세별__5세별____전국_20251105141310.csv"
+df <- read.csv(path, fileEncoding = "CP949", check.names = FALSE)
+
+# 2) 모든 열 이름을 문자열로 강제 변환 (중요!)
+names(df) <- as.character(names(df))
+
+# 3) 연도 컬럼 찾기
+year_cols <- names(df)[grepl("^[0-9]{4}$", names(df))]
+meta_cols <- setdiff(names(df), year_cols)
+
+# 4) Long 변환 (이제 형 일관성 보장)
+long <- df |>
+  mutate(across(all_of(year_cols), as.character)) |>  # <- 모든 연도 열을 문자로 통일
+  pivot_longer(all_of(year_cols), names_to = "year", values_to = "pop") |>
+  mutate(year = as.integer(year))
+
+# 5) 시나리오/성별 필터 (중위 추계 + 남/여만 사용)
+long <- long |>
+  filter(grepl("중위", .data[["가정별"]])) |>
+  filter(.data[["성별"]] %in% c("남자","여자"))
+
+# 6) 연령 레벨 정렬(총계 '계' 제거, 앞 숫자로 정렬)
+age_levels <- long |>
+  filter(연령별 != "계") |>
+  distinct(연령별) |>
+  mutate(key = suppressWarnings(as.integer(sub(" .*","", 연령별)))) |>
+  arrange(key) |>
+  pull(연령별)
+
+long <- long |>
+  filter(연령별 != "계") |>
+  mutate(
+    연령별 = factor(연령별, levels = age_levels),
+    pop = as.numeric(pop),
+    pop_plot = ifelse(성별 == "남자", -pop, pop)
+  )
+
+# 7) 단위 라벨
+unit_label <- if ("단위" %in% names(df)) df$단위[1] else "명"
+
+# 8) Plotly 애니메이션 생성
+plot_ly() |>
+  add_bars(
+    data = long |> filter(성별 == "남자"),
+    x = ~pop_plot, y = ~연령별, frame = ~year,
+    orientation = "h", name = "남자",
+    marker = list(color = "#5B9BD5"),
+    text = ~format(abs(pop_plot), big.mark = ","),
+    customdata = ~year,
+    hovertemplate = "연도: %{customdata}<br>연령: %{y}<br>남자: %{text}<extra></extra>"
+  ) |>
+  add_bars(
+    data = long |> filter(성별 == "여자"),
+    x = ~pop_plot, y = ~연령별, frame = ~year,
+    orientation = "h", name = "여자",
+    marker = list(color = "#ED7D31"),
+    text = ~format(abs(pop_plot), big.mark = ","),
+    customdata = ~year,
+    hovertemplate = "연도: %{customdata}<br>연령: %{y}<br>여자: %{text}<extra></extra>"
+  ) |>
+  layout(
+    title = list(
+      text = "<b>인구피라미드</b>",
+      font = list(size = 18, family = "Malgun Gothic")
+    ),
+    barmode = "overlay",
+    xaxis = list(
+      title = paste0("인구수 (", unit_label, ")"), 
+      tickformat = ",d",
+      gridcolor = 'rgba(200,200,200,0.3)'
+    ),
+    yaxis = list(
+      title = "연령대",
+      gridcolor = 'rgba(200,200,200,0.3)'
+    ),
+    font = list(family = "Malgun Gothic, sans-serif", size = 10),
+    legend = list(
+      orientation = "h", 
+      x = 0.35, 
+      y = -0.15
+    ),
+    margin = list(l = 80, r = 50, t = 80, b = 100)
+  ) |>
+  animation_opts(
+    frame = 300, 
+    transition = 0, 
+    easing = "linear", 
+    redraw = FALSE
+  ) |>
+  animation_slider(
+    currentvalue = list(
+      prefix = "연도: ",
+      font = list(size = 14)
+    )
+  ) |>
+  config(displayModeBar = TRUE, locale = 'ko')
+```
+
+### 인구성장률 추이
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#| fig-width: 10
+#| fig-height: 7
+
+path2 <- "주요_인구지표_성비_인구성장률_인구구조_부양비_등____전국_20251107085649.csv"
+df2 <- read.csv(path2, fileEncoding = "CP949", check.names = FALSE)
+
+year_cols <- names(df2)[grepl("^[0-9]{4}$", names(df2))]
+growth <- df2 |>
+  filter(str_detect(df2[["인구구조,부양비별"]], "인구성장률")) |>
+  pivot_longer(
+    all_of(year_cols),
+    names_to = "연도",
+    values_to = "성장률"
+  ) |>
+  mutate(
+    연도 = as.integer(연도),
+    성장률 = as.numeric(성장률)
+  )
+
+plot_ly(
+  data = growth,
+  x = ~연도, 
+  y = ~성장률,
+  type = "scatter", 
+  mode = "lines+markers",
+  line = list(color = "#2BB3B8", width = 3),
+  marker = list(color = "#2BB3B8", size = 7),
+  hovertemplate = "연도: %{x}<br>인구성장률: %{y}%<extra></extra>"
+) |>
+  layout(
+    title = list(
+      text = "<b>인구성장률 추이</b>",
+      font = list(size = 18, family = "Malgun Gothic")
+    ),
+    xaxis = list(
+      title = "연도", 
+      rangeslider = list(visible = TRUE),
+      gridcolor = 'rgba(200,200,200,0.3)'
+    ),
+    yaxis = list(
+      title = "인구성장률(%)", 
+      fixedrange = FALSE,
+      gridcolor = 'rgba(200,200,200,0.3)',
+      zeroline = TRUE,
+      zerolinecolor = 'rgba(0,0,0,0.5)',
+      zerolinewidth = 1
+    ),
+    hovermode = "x unified",
+    font = list(family = "Malgun Gothic, sans-serif", size = 10),
+    plot_bgcolor = 'rgba(240,240,240,0.3)',
+    paper_bgcolor = 'white',
+    margin = list(l = 60, r = 50, t = 80, b = 120)
+  ) |>
+  config(displayModeBar = TRUE, locale = 'ko')
+```
+
+### 연령계층별 인구구조
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#| fig-width: 10
+#| fig-height: 7
+
+pop_raw <- read_csv(
+  "주요_인구지표_성비_인구성장률_인구구조_부양비_등____전국_20251118150417.csv",
+  locale = locale(encoding = "CP949")
+)
+
+age_long <- pop_raw |>
+  filter(`인구구조,부양비별` %in% c(
+    "- 구성비(%): 0-14세",
+    "- 구성비(%): 15-64세",
+    "- 구성비(%): 65세 이상"
+  )) |>
+  pivot_longer(
+    cols = `1961`:`2072`,
+    names_to = "year",
+    values_to = "ratio"
+  ) |>
+  mutate(
+    year = as.integer(year),
+    연령계층 = case_when(
+      `인구구조,부양비별` == "- 구성비(%): 0-14세" ~ "0-14세 유소년인구",
+      `인구구조,부양비별` == "- 구성비(%): 15-64세" ~ "15-64세 생산연령인구",
+      `인구구조,부양비별` == "- 구성비(%): 65세 이상" ~ "65세 이상 고령인구"
+    ),
+    연령계층 = factor(
+      연령계층,
+      levels = c(
+        "0-14세 유소년인구",
+        "15-64세 생산연령인구",
+        "65세 이상 고령인구"
+      )
+    )
+  )
+
+plot_ly(
+  data = age_long,
+  x = ~year,
+  y = ~ratio,
+  color = ~연령계층,
+  colors = c("#134981", "#FFEABC", "#FBC5F9"),
+  type = "bar",
+  hovertemplate = "연도: %{x}<br>%{fullData.name}: %{y}%<extra></extra>"
+) |>
+  layout(
+    title = list(
+      text = "<b>연령계층별 인구구조 그래프</b>",
+      font = list(size = 18, family = "Malgun Gothic")
+    ),
+    barmode = "stack",
+    xaxis = list(
+      title = "연도",
+      rangeslider = list(visible = TRUE),
+      gridcolor = 'rgba(200,200,200,0.3)'
+    ),
+    yaxis = list(
+      title = "구성비(%)",
+      range = c(0, 100),
+      gridcolor = 'rgba(200,200,200,0.3)'
+    ),
+    font = list(family = "Malgun Gothic, sans-serif", size = 10),
+    legend = list(
+      orientation = "h",
+      x = 0.2,
+      y = -0.2,
+      font = list(size = 10)
+    ),
+    plot_bgcolor = 'rgba(240,240,240,0.3)',
+    paper_bgcolor = 'white',
+    margin = list(l = 60, r = 50, t = 80, b = 120)
+  ) |>
+  config(displayModeBar = TRUE, locale = 'ko')
+```
+
+:::
+
+---
+
+
+
+## 우리나라 생산가능인구 전망 추이
+
+```{r}
+
+# 1. 데이터 파일 불러오기
+# 파일 경로는 사용자의 환경에 맞게 조정이 필요할 수 있습니다.
+population_data_raw <- read_csv(
+  "주요_연령계층별_추계인구_생산연령인구__고령인구_등____전국_20251208184446.csv", 
+  locale = locale(encoding = "euc-kr")
+)
+
+# 2. 데이터 전처리
+population_data_processed <- population_data_raw %>%
+  # '인구종류별' 열에서 생산연령인구 데이터만 필터링
+  filter(`인구종류별` == "생산연령인구(천명): 계(15~64세)") %>%
+  # '가정별' 열과 '인구종류별' 열을 제외하고, 연도와 인구 데이터를 긴 형식으로 변환
+  pivot_longer(
+    cols = `2015`:`2050`,
+    names_to = "연도",
+    values_to = "생산가능인구" # 단위: 천명
+  ) %>%
+  # '연도'를 숫자로 변환
+  mutate(연도 = as.numeric(연도)) %>%
+  # 연도 5년 간격으로 샘플링 (기존 코드와 통일성을 위해)
+  # 원본 데이터는 매년 데이터가 있으므로, 필요하다면 이 필터를 제거할 수 있습니다.
+  filter(연도 %% 5 == 0 | 연도 == 2015 | 연도 == 2050) %>%
+  # '생산가능인구'의 NA 값 제거 (데이터가 없는 경우를 대비)
+  drop_na(생산가능인구)
+
+# 3. 그래프 생성
+# 원본 코드의 주석 처리된 계산을 위해 필요한 값 추출
+start_population <- population_data_processed %>% filter(연도 == 2015) %>% pull(생산가능인구)
+end_population <- population_data_processed %>% filter(연도 == 2050) %>% pull(생산가능인구)
+# 감소율 계산
+decrease_rate <- round((start_population - end_population) / start_population * 100)
+
+plot_ly(population_data_processed,
+        x = ~연도,
+        y = ~생산가능인구,
+        type = 'scatter',
+        mode = 'lines+markers',
+        fill = 'tozeroy',
+        fillcolor = 'rgba(255, 0, 0, 0.1)',
+        line = list(color = 'red', width = 3),
+        marker = list(size = 10, color = 'red')) %>%
+  layout(
+    title = list(text = '대한민국 생산가능인구 전망 (2015-2050)', font = list(size = 16)),
+    xaxis = list(title = '연도'),
+    yaxis = list(title = '인구 (천명)'),
+    hovermode = 'x unified'
+  )
+```
+
+```{r}
+#| echo: false
+
+decrease_2050 <- ((24890 - 37040) / 37040) * 100
+decrease_amount <- 37040 - 24890
+```
+---
+
+
+
+## 생각해보기🤔 
+
+::: {.panel-tabset}
+
+### 질문 1
+**2035년 우리나라 경제활동인구의 평균 나이는 어떻게 될까요?**
+
+KOSIS 포털 속에서 답을 찾아봅시다.:
+<textarea style="width:100%; height:100px; padding:10px; border:2px solid #ddd; border-radius:5px;" placeholder="2035년 우리나라 경제활동인구의 평균 나이는..."></textarea>
+
+
+:::
+
+---
+

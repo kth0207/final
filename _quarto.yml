@@ -1,0 +1,51 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "IT 직종과 인구 변화"
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "앞으로의 취업시장 짚어보기"
+        href: index.qmd
+      - text: "인구그래프"
+        href: chapter0-인구그래프.qmd
+      - text: "미래를 이끌 산업분야"
+        href: chapter1-opportunity.qmd
+      - text: "KOSIS사이트 바로가기"
+        href: https://kosis.kr/index/index.do
+
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "IT직종과 인구변화"
+        contents:
+          - index.qmd
+          - chapter0-인구그래프.qmd
+          - chapter1-opportunity.qmd
+
+format:
+  html:
+    theme:
+      light: [cosmo, styles/custom.css]
+      dark: [darkly, styles/custom.css]
+    css: styles/custom.css
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    smooth-scroll: true
+    link-external-newwindow: true
+    anchor-sections: false
+    fig-width: 8
+    fig-height: 6
+
+execute:
+  freeze: auto
+  echo: false
+  warning: false
+  message: false
+
+lang: ko

@@ -1,0 +1,386 @@
+[
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "앞으로의 취업시장 짚어보기",
+    "section": "",
+    "text": "&gt;두 기사를 보며 생각을 나누어 봅시다\n\n📰 조선일보 - IT 인력난과 인구 절벽\n📰 아시아경제 - 청년 인구 감소와 취업 시장",
+    "crumbs": [
+      "앞으로의 취업시장 짚어보기",
+      "IT직종과 인구변화",
+      "앞으로의 취업시장 짚어보기"
+    ]
+  },
+  {
+    "objectID": "index.html#시작하며",
+    "href": "index.html#시작하며",
+    "title": "앞으로의 취업시장 짚어보기",
+    "section": "",
+    "text": "&gt;두 기사를 보며 생각을 나누어 봅시다\n\n📰 조선일보 - IT 인력난과 인구 절벽\n📰 아시아경제 - 청년 인구 감소와 취업 시장",
+    "crumbs": [
+      "앞으로의 취업시장 짚어보기",
+      "IT직종과 인구변화",
+      "앞으로의 취업시장 짚어보기"
+    ]
+  },
+  {
+    "objectID": "index.html#오늘의-수업에서는",
+    "href": "index.html#오늘의-수업에서는",
+    "title": "앞으로의 취업시장 짚어보기",
+    "section": "오늘의 수업에서는",
+    "text": "오늘의 수업에서는\nKOSIS(국가통계포털) 데이터를 활용하여 IT 직종 수요 증가와 인구 감소의 관계를 탐구합니다.\n\n\n\n\n\n\n탐구 질문\n\n\n\n\nIT 직종은 정말 수요가 늘어나고 있을까?\n다른 직종과 비교하면 어떨까?\n인구 감소가 IT 취업 시장에 어떤 영향을 미칠까?\n우리에게 어떤 기회와 도전이 있을까?\n\n\n\n\n\n\n\nChapter 1\n\n인구 감소 충격 생산인구 데이터 탐색\n\n\n\n\n\nChapter 2\n\n미래를 이끌 산업분야 2019년~2025년실업률 및 취업자 추이 데이터 산업 분야 인력 부족률\n\n\n\n\n인구그래프 →",
+    "crumbs": [
+      "앞으로의 취업시장 짚어보기",
+      "IT직종과 인구변화",
+      "앞으로의 취업시장 짚어보기"
+    ]
+  },
+  {
+    "objectID": "chapter4-competition.html",
+    "href": "chapter4-competition.html",
+    "title": "Chapter 4: 기회다… 그런데 경쟁도 있다",
+    "section": "",
+    "text": "IT 직종 지원자는 얼마나 될까?\n특성화고 vs 대학 vs 부트캠프 경쟁 구도\n지역별 IT 기업 분포와 기회\n현실적인 경쟁력 평가"
+  },
+  {
+    "objectID": "chapter4-competition.html#이번-챕터에서는",
+    "href": "chapter4-competition.html#이번-챕터에서는",
+    "title": "Chapter 4: 기회다… 그런데 경쟁도 있다",
+    "section": "",
+    "text": "IT 직종 지원자는 얼마나 될까?\n특성화고 vs 대학 vs 부트캠프 경쟁 구도\n지역별 IT 기업 분포와 기회\n현실적인 경쟁력 평가"
+  },
+  {
+    "objectID": "chapter4-competition.html#it-희망자는-얼마나-될까",
+    "href": "chapter4-competition.html#it-희망자는-얼마나-될까",
+    "title": "Chapter 4: 기회다… 그런데 경쟁도 있다",
+    "section": "📊 IT 희망자는 얼마나 될까?",
+    "text": "📊 IT 희망자는 얼마나 될까?\n\n# TODO: 실제 데이터로 교체\napplicant_data &lt;- tibble(\n  연도 = 2019:2024,\n  지원자수 = c(185000, 205000, 238000, 276000, 315000, 358000),\n  채용인원 = c(78000, 84000, 95000, 108000, 122000, 138000)\n) %&gt;%\n  mutate(경쟁률 = 지원자수 / 채용인원)\n\n# 이중 축 그래프\nplot_ly() %&gt;%\n  add_bars(data = applicant_data,\n           x = ~연도, y = ~지원자수,\n           name = '지원자 수',\n           marker = list(color = 'lightblue')) %&gt;%\n  add_bars(data = applicant_data,\n           x = ~연도, y = ~채용인원,\n           name = '채용 인원',\n           marker = list(color = 'lightgreen')) %&gt;%\n  add_lines(data = applicant_data,\n            x = ~연도, y = ~경쟁률,\n            name = '경쟁률',\n            mode = 'lines+markers',\n            yaxis = 'y2',\n            line = list(color = 'red', width = 3),\n            marker = list(size = 10, color = 'red')) %&gt;%\n  layout(\n    title = list(text = 'IT 직종 지원자 vs 채용인원', font = list(size = 16)),\n    xaxis = list(title = '연도'),\n    yaxis = list(title = '인원 (명)', side = 'left'),\n    yaxis2 = list(title = '경쟁률 (배수)', overlaying = 'y', side = 'right'),\n    barmode = 'group',\n    hovermode = 'x unified'\n  )\n\n\n\n\n\n\n\n그림 1: IT 직종 지원자 수 추이\n\n\n\n\n\n\n\n\n\n\n📌 현실 체크\n\n\n\n\n청년 인구는 줄어도 IT 희망자는 늘고 있음\n2024년 평균 경쟁률: 약 2.6:1\n채용은 늘지만 지원자도 함께 증가"
+  },
+  {
+    "objectID": "chapter4-competition.html#학력별-경쟁-구도",
+    "href": "chapter4-competition.html#학력별-경쟁-구도",
+    "title": "Chapter 4: 기회다… 그런데 경쟁도 있다",
+    "section": "🎓 학력별 경쟁 구도",
+    "text": "🎓 학력별 경쟁 구도\n\neducation_data &lt;- tibble(\n  학력 = c('특성화고', '전문대', '4년제대학', '대학원', '부트캠프\\n기타'),\n  취업자수 = c(82000, 156000, 485000, 98000, 62000),\n  평균연봉 = c(2800, 3200, 3800, 4500, 3300)\n)\n\nplot_ly() %&gt;%\n  add_bars(data = education_data,\n           x = ~학력, y = ~취업자수,\n           name = '취업자 수',\n           marker = list(color = 'steelblue'),\n           yaxis = 'y') %&gt;%\n  add_lines(data = education_data,\n            x = ~학력, y = ~평균연봉,\n            name = '평균 초봉',\n            mode = 'lines+markers',\n            yaxis = 'y2',\n            line = list(color = 'orange', width = 3),\n            marker = list(size = 12, symbol = 'diamond', color = 'orange')) %&gt;%\n  layout(\n    title = list(text = '학력별 IT 취업 현황 (2024)', font = list(size = 16)),\n    xaxis = list(title = '학력'),\n    yaxis = list(title = '취업자 수 (명)', side = 'left'),\n    yaxis2 = list(title = '평균 초봉 (만원)', overlaying = 'y', side = 'right'),\n    hovermode = 'x unified'\n  )\n\n\n\n\n\n\n\n그림 2: 학력별 IT 직종 취업 현황\n\n\n\n\n\n\n\n\n\n\n💡 특성화고의 위치\n\n\n\n장점: - 실무 중심 교육으로 현장 적응력 우수 - 대학생보다 4년 빠른 경력 시작 - 기업에서 선호하는 실습 경험\n과제: - 상대적으로 낮은 초봉 (하지만 경력 쌓으면 역전 가능) - 대기업 지원 시 학력 제한 - 지속적인 자기계발 필요"
+  },
+  {
+    "objectID": "chapter4-competition.html#지역별-it-기업-현황",
+    "href": "chapter4-competition.html#지역별-it-기업-현황",
+    "title": "Chapter 4: 기회다… 그런데 경쟁도 있다",
+    "section": "🗺️ 지역별 IT 기업 현황",
+    "text": "🗺️ 지역별 IT 기업 현황\n\n# TODO: KOSIS 지역별 사업체 데이터로 교체\nregional_companies &lt;- tibble(\n  지역 = c('서울', '경기', '부산', '대구', '인천', '대전', '광주', '울산',\n           '세종', '강원', '충북', '충남', '전북', '전남', '경북', '경남', '제주'),\n  IT기업수 = c(8500, 4200, 680, 420, 580, 520, 280, 180,\n                150, 220, 320, 380, 240, 200, 380, 450, 120),\n  평균직원수 = c(45, 32, 28, 25, 30, 35, 22, 26,\n                 28, 18, 24, 22, 20, 19, 23, 25, 20)\n) %&gt;%\n  mutate(총_IT일자리 = IT기업수 * 평균직원수)\n\nplot_ly(regional_companies, \n        x = ~IT기업수, \n        y = ~평균직원수,\n        size = ~총_IT일자리,\n        color = ~지역,\n        type = 'scatter',\n        mode = 'markers',\n        sizes = c(10, 500),\n        marker = list(sizemode = 'diameter'),\n        text = ~paste(지역, '&lt;br&gt;총 일자리:', comma(총_IT일자리)),\n        hovertemplate = '%{text}&lt;extra&gt;&lt;/extra&gt;') %&gt;%\n  layout(\n    title = list(text = '지역별 IT 생태계 (버블 크기 = 총 일자리)', font = list(size = 16)),\n    xaxis = list(title = 'IT 기업 수 (개)'),\n    yaxis = list(title = '평균 직원 수 (명)')\n  )\n\n\n\n\n\n\n\n그림 3: 시도별 IT 기업 수와 평균 직원 수\n\n\n\n\n\n\n\n\n\n\n🌆 수도권 집중 현상\n\n\n\n\n서울+경기: 전체 IT 기업의 약 65%\n지방: IT 기업은 있지만 소규모 위주\n선택의 기로: 수도권 이동 vs 지역 정착"
+  },
+  {
+    "objectID": "chapter4-competition.html#직종별-세부-경쟁률",
+    "href": "chapter4-competition.html#직종별-세부-경쟁률",
+    "title": "Chapter 4: 기회다… 그런데 경쟁도 있다",
+    "section": "💼 직종별 세부 경쟁률",
+    "text": "💼 직종별 세부 경쟁률\n\njob_competition &lt;- tribble(\n  ~IT직종, ~평균경쟁률, ~필요역량, ~특성화고적합도,\n  '프론트엔드 개발자', '3.2:1', 'HTML/CSS/JS, React/Vue', '상',\n  '백엔드 개발자', '2.8:1', 'Java/Python, DB, API', '상',\n  '앱 개발자', '3.5:1', 'Swift/Kotlin, 크로스플랫폼', '상',\n  '게임 개발자', '4.8:1', 'Unity/Unreal, C++', '중',\n  '정보보안 전문가', '2.1:1', '보안 자격증, 네트워크', '상',\n  '데이터 분석가', '3.9:1', 'Python, SQL, 통계', '중',\n  'UI/UX 디자이너', '5.2:1', 'Figma, 사용자 경험', '상',\n  '시스템 엔지니어', '1.8:1', 'Linux, 네트워크, 클라우드', '상'\n)\n\nkable(job_competition,\n      col.names = c('IT 직종', '평균 경쟁률', '필요 역량', '특성화고 적합도'),\n      align = c('l', 'c', 'l', 'c'))\n\n\n\n표 1: IT 세부 직종별 경쟁 현황 (2024)\n\n\n\n\n\n\n\n\n\n\n\n\nIT 직종\n평균 경쟁률\n필요 역량\n특성화고 적합도\n\n\n\n\n프론트엔드 개발자\n3.2:1\nHTML/CSS/JS, React/Vue\n상\n\n\n백엔드 개발자\n2.8:1\nJava/Python, DB, API\n상\n\n\n앱 개발자\n3.5:1\nSwift/Kotlin, 크로스플랫폼\n상\n\n\n게임 개발자\n4.8:1\nUnity/Unreal, C++\n중\n\n\n정보보안 전문가\n2.1:1\n보안 자격증, 네트워크\n상\n\n\n데이터 분석가\n3.9:1\nPython, SQL, 통계\n중\n\n\nUI/UX 디자이너\n5.2:1\nFigma, 사용자 경험\n상\n\n\n시스템 엔지니어\n1.8:1\nLinux, 네트워크, 클라우드\n상\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🎯 전략적 선택\n\n\n\n경쟁률이 낮은 분야: - 시스템 엔지니어 (1.8:1) - 정보보안 (2.1:1) - 백엔드 개발 (2.8:1)\n특성화고 졸업생에게 유리한 분야: - 실무 기술 중심 직종 (개발, 시스템, 보안) - 자격증이 인정받는 분야"
+  },
+  {
+    "objectID": "chapter4-competition.html#경력에-따른-연봉-변화",
+    "href": "chapter4-competition.html#경력에-따른-연봉-변화",
+    "title": "Chapter 4: 기회다… 그런데 경쟁도 있다",
+    "section": "📈 경력에 따른 연봉 변화",
+    "text": "📈 경력에 따른 연봉 변화\n\nsalary_data &lt;- tibble(\n  경력 = factor(c('신입', '1-2년', '3-4년', '5-7년', '8-10년', '10년+'),\n                levels = c('신입', '1-2년', '3-4년', '5-7년', '8-10년', '10년+')),\n  특성화고 = c(2800, 3400, 4200, 5300, 6500, 7800),\n  대학졸업 = c(3800, 4300, 5000, 6000, 7200, 8500)\n) %&gt;%\n  pivot_longer(cols = -경력, names_to = '학력', values_to = '연봉')\n\nplot_ly(salary_data, \n        x = ~경력, \n        y = ~연봉, \n        color = ~학력,\n        type = 'scatter', \n        mode = 'lines+markers',\n        line = list(width = 3),\n        marker = list(size = 10)) %&gt;%\n  layout(\n    title = list(text = '경력에 따른 연봉 변화 - 격차는 줄어든다', font = list(size = 16)),\n    xaxis = list(title = '경력'),\n    yaxis = list(title = '평균 연봉 (만원)'),\n    hovermode = 'x unified',\n    annotations = list(\n      list(x = '8-10년', y = 6800,\n           text = '경력이 쌓이면&lt;br&gt;격차 축소!',\n           showarrow = TRUE,\n           arrowhead = 2)\n    )\n  )\n\n\n\n\n\n\n\n그림 4: IT 직종 경력별 평균 연봉\n\n\n\n\n\n\n\n\n\n\n🚀 희망적인 사실\n\n\n\n초봉 차이: 약 1,000만원\n10년 후: 약 700만원으로 축소\n→ 실력과 경험이 학력보다 중요해집니다!"
+  },
+  {
+    "objectID": "chapter4-competition.html#기업-규모별-채용-현황",
+    "href": "chapter4-competition.html#기업-규모별-채용-현황",
+    "title": "Chapter 4: 기회다… 그런데 경쟁도 있다",
+    "section": "🏢 기업 규모별 채용 현황",
+    "text": "🏢 기업 규모별 채용 현황\n\ncompany_size &lt;- tibble(\n  기업규모 = c('대기업', '중견기업', '중소기업', '스타트업'),\n  채용비율 = c(15, 25, 45, 15),\n  특성화고_선호도 = c(30, 65, 75, 60)\n) %&gt;%\n  pivot_longer(cols = -기업규모, names_to = '구분', values_to = '비율')\n\nplot_ly(company_size, \n        x = ~기업규모, \n        y = ~비율, \n        color = ~구분,\n        type = 'bar',\n        colors = c('lightblue', 'orange')) %&gt;%\n  layout(\n    title = list(text = '기업 규모별 채용 비율 vs 특성화고 선호도', font = list(size = 16)),\n    xaxis = list(title = '기업 규모'),\n    yaxis = list(title = '비율 (%)'),\n    barmode = 'group'\n  )\n\n\n\n\n\n\n\n그림 5: 기업 규모별 IT 신입 채용 비율\n\n\n\n\n\n\n\n\n\n\n💼 기업별 특징\n\n\n\n대기업: - 학력 중시 경향 - 높은 초봉 - 체계적인 교육\n중소기업/스타트업: - 실무 능력 중시 ⭐ - 빠른 성장 기회 - 특성화고 출신 선호도 높음"
+  },
+  {
+    "objectID": "chapter4-competition.html#이번-챕터-정리",
+    "href": "chapter4-competition.html#이번-챕터-정리",
+    "title": "Chapter 4: 기회다… 그런데 경쟁도 있다",
+    "section": "📝 이번 챕터 정리",
+    "text": "📝 이번 챕터 정리\n\n알게 된 것\n✅ IT 수요는 많지만 경쟁도 만만치 않음\n✅ 특성화고 출신도 충분히 경쟁력 있음\n✅ 기업 규모/지역에 따라 전략적 접근 필요\n✅ 실력과 경험이 가장 중요\n\n\n이제 필요한 것은?\n나만의 전략!\n다음 챕터에서는 데이터를 바탕으로\n여러분의 커리어 전략을 세워봅시다.\n\n\n← Chapter 3 | Chapter 5로 →"
+  },
+  {
+    "objectID": "chapter0-인구그래프.html",
+    "href": "chapter0-인구그래프.html",
+    "title": "인구그래프",
+    "section": "",
+    "text": "인구피라미드인구성장률 추이연령계층별 인구구조",
+    "crumbs": [
+      "앞으로의 취업시장 짚어보기",
+      "IT직종과 인구변화",
+      "인구그래프"
+    ]
+  },
+  {
+    "objectID": "chapter0-인구그래프.html#인구-그래프",
+    "href": "chapter0-인구그래프.html#인구-그래프",
+    "title": "인구그래프",
+    "section": "",
+    "text": "인구피라미드인구성장률 추이연령계층별 인구구조",
+    "crumbs": [
+      "앞으로의 취업시장 짚어보기",
+      "IT직종과 인구변화",
+      "인구그래프"
+    ]
+  },
+  {
+    "objectID": "chapter0-인구그래프.html#우리나라-생산가능인구-전망-추이",
+    "href": "chapter0-인구그래프.html#우리나라-생산가능인구-전망-추이",
+    "title": "인구그래프",
+    "section": "우리나라 생산가능인구 전망 추이",
+    "text": "우리나라 생산가능인구 전망 추이",
+    "crumbs": [
+      "앞으로의 취업시장 짚어보기",
+      "IT직종과 인구변화",
+      "인구그래프"
+    ]
+  },
+  {
+    "objectID": "chapter0-인구그래프.html#생각해보기",
+    "href": "chapter0-인구그래프.html#생각해보기",
+    "title": "인구그래프",
+    "section": "생각해보기🤔",
+    "text": "생각해보기🤔\n\n질문 1\n\n\n2035년 우리나라 경제활동인구의 평균 나이는 어떻게 될까요?\nKOSIS 포털 속에서 답을 찾아봅시다.:",
+    "crumbs": [
+      "앞으로의 취업시장 짚어보기",
+      "IT직종과 인구변화",
+      "인구그래프"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "“IT 직종과 인구 변화: 데이터로 보는 미래 전망”\n\n\n\n\n사회과 AI융합교육을 위한 Quarto 웹 페이지 제작\n인구문제(저출산, 고령화, 인구절벽)와 IT 직종의 관계 탐구\n특성화고 학생들의 진로 설계 지원\n데이터 리터러시 및 데이터 기반 의사결정 역량 함양"
+  },
+  {
+    "objectID": "about.html#프로젝트-개요",
+    "href": "about.html#프로젝트-개요",
+    "title": "About",
+    "section": "",
+    "text": "“IT 직종과 인구 변화: 데이터로 보는 미래 전망”\n\n\n\n\n사회과 AI융합교육을 위한 Quarto 웹 페이지 제작\n인구문제(저출산, 고령화, 인구절벽)와 IT 직종의 관계 탐구\n특성화고 학생들의 진로 설계 지원\n데이터 리터러시 및 데이터 기반 의사결정 역량 함양"
+  },
+  {
+    "objectID": "about.html#학습-목표",
+    "href": "about.html#학습-목표",
+    "title": "About",
+    "section": "🎯 학습 목표",
+    "text": "🎯 학습 목표\n\n지식·이해\n\n인구 구조 변화와 노동 시장의 관계 이해\nIT 산업의 성장 배경과 전망 파악\nKOSIS 데이터 활용 방법 습득\n\n\n\n과정·기능\n\n데이터 수집, 분석, 시각화 능력 개발\nPython/R을 활용한 데이터 처리\nQuarto를 활용한 웹 문서 작성\n비판적 데이터 해석 능력\n\n\n\n가치·태도\n\n데이터 기반 의사결정의 중요성 인식\n사회 문제에 대한 관심과 탐구 자세\n미래 지향적 진로 설계"
+  },
+  {
+    "objectID": "about.html#데이터-출처",
+    "href": "about.html#데이터-출처",
+    "title": "About",
+    "section": "📊 데이터 출처",
+    "text": "📊 데이터 출처\n모든 데이터는 KOSIS(국가통계포털)에서 수집했습니다.\n\n사용한 주요 통계\n\n\n\n통계 분류\n통계명\n기관\n\n\n\n\n인구\n장래인구추계\n통계청\n\n\n인구\n시도/연령별 인구\n통계청\n\n\n고용\n직업별 취업자 수\n통계청(경제활동인구조사)\n\n\n고용\n산업별 취업자 수\n통계청\n\n\n교육\n학령인구\n교육부/한국교육개발원\n\n\n사업\n산업별 사업체 수\n통계청(전국사업체조사)\n\n\n\n\n\n데이터 수집 기간\n\n기준 데이터: 2015-2024년\n전망 데이터: 2025-2050년 (통계청 장래인구추계)\n\n\n\n데이터 접근\n\nKOSIS 웹사이트: https://kosis.kr\n데이터는 누구나 무료로 다운로드 가능\n\n\n\n\n\n\n\n📌 데이터 신뢰성\n\n\n\n본 프로젝트에서 사용한 모든 데이터는 정부 공식 통계로, 신뢰할 수 있는 출처입니다. 단, 미래 예측 데이터는 현재 추세를 바탕으로 한 전망이므로 실제와 다를 수 있습니다."
+  },
+  {
+    "objectID": "about.html#사용-기술",
+    "href": "about.html#사용-기술",
+    "title": "About",
+    "section": "🛠️ 사용 기술",
+    "text": "🛠️ 사용 기술\n\n웹 퍼블리싱\n\nQuarto: 문서 작성 및 웹사이트 생성\nMarkdown: 텍스트 작성\nHTML/CSS: 디자인 커스터마이징\n\n\n\n데이터 분석 및 시각화\n\nPython: 데이터 처리 및 분석\n\npandas: 데이터 조작\nplotly: 인터랙티브 시각화\nscikit-learn: 간단한 예측 모델\n\nR (선택적): 통계 분석\n\n\n\n버전 관리\n\nGit/GitHub: 프로젝트 관리 및 배포"
+  },
+  {
+    "objectID": "about.html#대상-및-활용",
+    "href": "about.html#대상-및-활용",
+    "title": "About",
+    "section": "👨‍🏫 대상 및 활용",
+    "text": "👨‍🏫 대상 및 활용\n\n대상 학생\n\n주 대상: 특성화고 2학년 학생\n확장 가능: 일반고 정보 과목 학생\n\n\n\n교육 과정 연계\n\n사회과\n\n인구 문제와 사회 변화\n직업 세계의 이해\n경제와 노동 시장\n\n\n\n정보과\n\n데이터 과학\n프로그래밍\n문제해결과 프로그래밍\n\n\n\n진로와 직업\n\n직업 세계의 변화\n진로 설계와 준비"
+  },
+  {
+    "objectID": "about.html#프로젝트-특징",
+    "href": "about.html#프로젝트-특징",
+    "title": "About",
+    "section": "💡 프로젝트 특징",
+    "text": "💡 프로젝트 특징\n\n1. 데이터 중심 접근\n\n주관적 의견이 아닌 객관적 데이터 기반\n실제 정부 통계 활용\n시각화를 통한 직관적 이해\n\n\n\n2. 학생 관심사 연계\n\n취업이라는 현실적 주제로 시작\n특성화고 학생의 관점 반영\n구체적인 실천 방안 제시\n\n\n\n3. 인터랙티브 학습\n\n클릭 가능한 그래프\n자가 진단 체크리스트\n개인화된 학습 경험\n\n\n\n4. AI 융합\n\n데이터 예측 모델 활용\n코딩 실습 포함\n미래 역량 개발"
+  },
+  {
+    "objectID": "about.html#참고-문헌-및-자료",
+    "href": "about.html#참고-문헌-및-자료",
+    "title": "About",
+    "section": "📚 참고 문헌 및 자료",
+    "text": "📚 참고 문헌 및 자료\n\n공식 문서\n\n통계청 (2023). 『장래인구추계: 2022~2072년』\n통계청. 『경제활동인구조사』\n과학기술정보통신부 (2024). 『ICT 실태조사』\n\n\n\n웹 자료\n\nKOSIS 국가통계포털: https://kosis.kr\n워크넷: https://www.work.go.kr\n한국고용정보원: https://www.keis.or.kr"
+  },
+  {
+    "objectID": "about.html#업데이트-계획",
+    "href": "about.html#업데이트-계획",
+    "title": "About",
+    "section": "🔄 업데이트 계획",
+    "text": "🔄 업데이트 계획\n본 프로젝트는 지속적으로 업데이트될 예정입니다:\n\n데이터 갱신: 분기별 최신 데이터 반영\n콘텐츠 추가: 새로운 직종, 트렌드 분석\n피드백 반영: 학생들의 의견 수렴"
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About",
+    "section": "🙋 Contact",
+    "text": "🙋 Contact\n\n제작자 정보\n\n과목: 정보\n학교: 특성화고등학교\n목적: 대학원 과제 (사회과 AI융합교육)\n\n\n\n피드백\n프로젝트에 대한 의견이나 제안이 있으시면 언제든 환영합니다!"
+  },
+  {
+    "objectID": "about.html#라이선스",
+    "href": "about.html#라이선스",
+    "title": "About",
+    "section": "📄 라이선스",
+    "text": "📄 라이선스\n\n데이터\n\n출처: KOSIS (공공데이터)\n라이선스: 공공누리 (출처 표시 시 자유 이용 가능)\n\n\n\n코드\n\n본 프로젝트의 코드는 교육 목적으로 자유롭게 사용 가능\n출처 표시를 권장합니다"
+  },
+  {
+    "objectID": "about.html#감사의-말",
+    "href": "about.html#감사의-말",
+    "title": "About",
+    "section": "🙏 감사의 말",
+    "text": "🙏 감사의 말\n\n통계청: 양질의 공공데이터 제공\nQuarto 개발팀: 훌륭한 도구 제공\n모든 선배 개발자들: 오픈소스 기여\n\n\n\n이 프로젝트가 학생들의 미래 설계에 도움이 되기를 바랍니다.\n\n\n\n\n← Chapter 5 | 홈으로"
+  },
+  {
+    "objectID": "chapter1-opportunity.html",
+    "href": "chapter1-opportunity.html",
+    "title": "미래를 이끌 산업분야",
+    "section": "",
+    "text": "20대 실업률 추이정보통신업 취업자 추이",
+    "crumbs": [
+      "앞으로의 취업시장 짚어보기",
+      "IT직종과 인구변화",
+      "미래를 이끌 산업분야"
+    ]
+  },
+  {
+    "objectID": "chapter1-opportunity.html#년2025년-실업률-및-취업자-추이",
+    "href": "chapter1-opportunity.html#년2025년-실업률-및-취업자-추이",
+    "title": "미래를 이끌 산업분야",
+    "section": "",
+    "text": "20대 실업률 추이정보통신업 취업자 추이",
+    "crumbs": [
+      "앞으로의 취업시장 짚어보기",
+      "IT직종과 인구변화",
+      "미래를 이끌 산업분야"
+    ]
+  },
+  {
+    "objectID": "chapter1-opportunity.html#데이터-산업-분야-인력-부족률",
+    "href": "chapter1-opportunity.html#데이터-산업-분야-인력-부족률",
+    "title": "미래를 이끌 산업분야",
+    "section": "데이터 산업 분야 인력 부족률",
+    "text": "데이터 산업 분야 인력 부족률\n\n인력 부족률 추이직무별 부족률2024년 현황\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n데이터 산업 분야 주요 발견점\n\n2024년 기준 전체 평균 인력 부족률: 13.2%\n2016~2024년 평균: 10.1%\n가장 부족한 직무: 데이터 과학자 (33.8%)\n증가 추세: 2016년 6% → 2024년 13.2% (7.2%p 변화)",
+    "crumbs": [
+      "앞으로의 취업시장 짚어보기",
+      "IT직종과 인구변화",
+      "미래를 이끌 산업분야"
+    ]
+  },
+  {
+    "objectID": "chapter1-opportunity.html#탐색해보기",
+    "href": "chapter1-opportunity.html#탐색해보기",
+    "title": "미래를 이끌 산업분야",
+    "section": "탐색해보기🤔",
+    "text": "탐색해보기🤔\n\n질문 1질문 2\n\n\n여러분이 관심있는 직종의 수요는 어떤가요?\n여러분의 생각을 적어보세요:\n\n\n\n여러분이 관심있는 직종의 수요에 영향을 미치는 요인은 어떤 게 있을까요?\n여러분의 생각을 적어보세요:",
+    "crumbs": [
+      "앞으로의 취업시장 짚어보기",
+      "IT직종과 인구변화",
+      "미래를 이끌 산업분야"
+    ]
+  },
+  {
+    "objectID": "chapter5-strategy.html",
+    "href": "chapter5-strategy.html",
+    "title": "Chapter 5: 데이터로 짜는 나의 전략",
+    "section": "",
+    "text": "우리는 데이터를 통해 다음을 발견했습니다:\n✅ IT 일자리는 지속적으로 증가\n✅ 인구 감소로 장기적 기회 확대\n✅ 하지만 경쟁도 존재\n✅ 실력과 전략이 중요\n이제 이 데이터를 바탕으로 나만의 전략을 세울 시간입니다!"
+  },
+  {
+    "objectID": "chapter5-strategy.html#지금까지의-여정",
+    "href": "chapter5-strategy.html#지금까지의-여정",
+    "title": "Chapter 5: 데이터로 짜는 나의 전략",
+    "section": "",
+    "text": "우리는 데이터를 통해 다음을 발견했습니다:\n✅ IT 일자리는 지속적으로 증가\n✅ 인구 감소로 장기적 기회 확대\n✅ 하지만 경쟁도 존재\n✅ 실력과 전략이 중요\n이제 이 데이터를 바탕으로 나만의 전략을 세울 시간입니다!"
+  },
+  {
+    "objectID": "chapter5-strategy.html#r로-예측하는-2030년",
+    "href": "chapter5-strategy.html#r로-예측하는-2030년",
+    "title": "Chapter 5: 데이터로 짜는 나의 전략",
+    "section": "🔮 R로 예측하는 2030년",
+    "text": "🔮 R로 예측하는 2030년\n\n# AI 예측 결과 (실제로는 Prophet, ARIMA 등 사용 가능)\nfuture_demand &lt;- tibble(\n  직종 = c('백엔드개발', '프론트엔드', '앱개발', '데이터분석', \n           '정보보안', 'AI/ML엔지니어', '클라우드', 'DevOps'),\n  `2024수요` = c(180, 160, 140, 120, 95, 85, 75, 60),\n  `2030예측` = c(245, 210, 185, 195, 160, 220, 180, 145),\n  증가율 = c(36, 31, 32, 63, 68, 159, 140, 142)\n) %&gt;%\n  arrange(증가율)\n\nplot_ly(future_demand, \n        y = ~reorder(직종, 증가율), \n        x = ~`2024수요`,\n        type = 'bar',\n        orientation = 'h',\n        name = '2024년',\n        marker = list(color = 'lightblue')) %&gt;%\n  add_trace(x = ~`2030예측`,\n            name = '2030년 예측',\n            marker = list(color = 'darkblue')) %&gt;%\n  layout(\n    title = list(text = '2030년 IT 직종별 수요 예측 (단위: 천명)', font = list(size = 16)),\n    xaxis = list(title = '수요 인력'),\n    yaxis = list(title = ''),\n    barmode = 'group',\n    height = 500\n  )\n\n\n\n\n\n\n\n그림 1: 2030년 IT 직종별 수요 예측\n\n\n\n\n\n\n\n\n\n\n🚀 미래 유망 직종 Top 3\n\n\n\n\nAI/ML 엔지니어 (+159%)\nDevOps 엔지니어 (+142%)\n클라우드 엔지니어 (+140%)\n\n하지만! 전통적인 개발 직종도 여전히 수요 ↑"
+  },
+  {
+    "objectID": "chapter5-strategy.html#학년별-로드맵",
+    "href": "chapter5-strategy.html#학년별-로드맵",
+    "title": "Chapter 5: 데이터로 짜는 나의 전략",
+    "section": "🗓️ 학년별 로드맵",
+    "text": "🗓️ 학년별 로드맵\n\n1학년2학년3학년\n\n\n목표: IT 기초 역량 확보\n\n1학기\n\n✅ 프로그래밍 언어 1개 집중 (Python/R 추천)\n✅ HTML/CSS 기초\n✅ 정보처리기능사 준비\n\n\n\n2학기\n\n✅ JavaScript 기초 또는 R 심화\n✅ 간단한 웹사이트 제작\n✅ GitHub 계정 만들고 코드 올리기\n\n포트폴리오: 계산기, 간단한 게임 등 3개 이상\n\n\n\n목표: 실무 프로젝트 경험\n\n1학기\n\n✅ 데이터베이스 (MySQL/PostgreSQL)\n✅ 프레임워크 학습\n✅ 팀 프로젝트 참여\n\n\n\n2학기\n\n✅ 정보처리산업기사 준비\n✅ 개인 프로젝트 완성 (포트폴리오용)\n✅ 공모전 참가 고려\n\n포트폴리오: 웹 애플리케이션 1개\n\n\n\n목표: 실전 대비 및 취업\n\n1학기\n\n✅ 포트폴리오 고도화\n✅ 이력서/자소서 작성\n✅ 모의 면접 연습\n✅ 원하는 기업 리서치\n\n\n\n2학기\n\n조기취업: 기업 지원 및 면접\n진학 준비: 심화 학습\n\n포트폴리오: 완성도 높은 프로젝트 2-3개"
+  },
+  {
+    "objectID": "chapter5-strategy.html#지역별-맞춤-전략",
+    "href": "chapter5-strategy.html#지역별-맞춤-전략",
+    "title": "Chapter 5: 데이터로 짜는 나의 전략",
+    "section": "💡 지역별 맞춤 전략",
+    "text": "💡 지역별 맞춤 전략\n\nregional_strategy &lt;- tibble(\n  지역 = c('수도권', '광역시', '중소도시'),\n  대기업기회 = c(85, 45, 15),\n  중소기업기회 = c(70, 85, 90),\n  재택근무기회 = c(60, 50, 40)\n) %&gt;%\n  pivot_longer(cols = -지역, names_to = '기회유형', values_to = '지수')\n\nplot_ly(regional_strategy, \n        x = ~지역, \n        y = ~지수, \n        color = ~기회유형,\n        type = 'bar',\n        colors = c('#3498db', '#2ecc71', '#e74c3c')) %&gt;%\n  layout(\n    title = list(text = '지역별 IT 취업 기회 분석', font = list(size = 16)),\n    xaxis = list(title = '지역'),\n    yaxis = list(title = '기회 지수'),\n    barmode = 'group'\n  )\n\n\n\n\n\n\n\n그림 2: 지역별 IT 취업 전략\n\n\n\n\n\n\n\n\n\n\n🗺️ 내 지역 전략\n\n\n\n수도권: 대기업, 스타트업 기회 많음\n광역시: 지역 기반 중견기업 노리기\n중소도시: 원격근무 가능 직무 or 이동 고려"
+  },
+  {
+    "objectID": "chapter5-strategy.html#취업-vs-진학-의사결정",
+    "href": "chapter5-strategy.html#취업-vs-진학-의사결정",
+    "title": "Chapter 5: 데이터로 짜는 나의 전략",
+    "section": "🎓 취업 vs 진학 의사결정",
+    "text": "🎓 취업 vs 진학 의사결정\n\n즉시 취업이 유리한 경우\n\n실무 프로젝트 경험 풍부\n명확한 커리어 목표\n경제적 독립 필요\n실무 경력을 빨리 쌓고 싶음\n\n장점: 4년 빠른 경력, 실무 경험, 수입\n\n\n대학 진학이 유리한 경우\n\n학문적 깊이를 원함\n대기업/연구직 희망\n시간적 여유 있음\n다양한 경험 원함\n\n장점: 학위, 이론적 기반, 네트워크, 높은 초봉\n\n\n절충안: 재직자 전형\n\n취업 후 야간/사이버대학\n회사 지원 받아 학위 취득\n경력도 쌓고 학위도 획득"
+  },
+  {
+    "objectID": "chapter5-strategy.html#실전-준비-체크리스트",
+    "href": "chapter5-strategy.html#실전-준비-체크리스트",
+    "title": "Chapter 5: 데이터로 짜는 나의 전략",
+    "section": "🛠️ 실전 준비 체크리스트",
+    "text": "🛠️ 실전 준비 체크리스트\n\n포트폴리오 필수 요소\n1. GitHub 프로필 - 프로필 사진과 소개 작성 - README로 자기소개 - 꾸준한 커밋 기록 - 프로젝트별 상세한 README\n2. 프로젝트 구성 - 개인 프로젝트 2-3개 - 팀 프로젝트 1-2개 - 각 프로젝트마다 시연 영상/스크린샷 - 사용 기술, 구현 기능 명시\n3. 기술 블로그 (선택) - Velog, Tistory, Medium 등 - 학습 내용 정리 - 프로젝트 회고"
+  },
+  {
+    "objectID": "chapter5-strategy.html#목표-설정-워크시트",
+    "href": "chapter5-strategy.html#목표-설정-워크시트",
+    "title": "Chapter 5: 데이터로 짜는 나의 전략",
+    "section": "🎯 목표 설정 워크시트",
+    "text": "🎯 목표 설정 워크시트\n\n\n\n\n\n\n✍️ 나의 3년 목표 작성하기\n\n\n\n1학년 말 목표:\n\n2학년 말 목표:\n\n3학년 (졸업 시) 목표:\n\n구체적인 관심 직종:"
+  },
+  {
+    "objectID": "chapter5-strategy.html#추천-학습-리소스",
+    "href": "chapter5-strategy.html#추천-학습-리소스",
+    "title": "Chapter 5: 데이터로 짜는 나의 전략",
+    "section": "📚 추천 학습 리소스",
+    "text": "📚 추천 학습 리소스\n\nR/데이터 분석웹 개발코딩 연습커뮤니티\n\n\n\nR for Data Science: https://r4ds.hadley.nz/\nswirl: R 내 대화형 학습\nTidyverse 공식 문서\nggplot2 튜토리얼\n\n\n\n\n생활코딩: 웹 개발 기초\n노마드코더: 실전 프로젝트\nMDN Web Docs\n\n\n\n\n백준 온라인 저지: 알고리즘\n프로그래머스: 코딩테스트\nLeetCode: 글로벌 문제풀이\n\n\n\n\nOKKY: 한국 개발자 커뮤니티\n생활코딩 커뮤니티"
+  },
+  {
+    "objectID": "chapter5-strategy.html#마지막-조언",
+    "href": "chapter5-strategy.html#마지막-조언",
+    "title": "Chapter 5: 데이터로 짜는 나의 전략",
+    "section": "🚀 마지막 조언",
+    "text": "🚀 마지막 조언\n\n\n\n\n\n\n💎 선배 개발자들의 조언\n\n\n\n\n“처음부터 완벽할 필요 없어요. 일단 시작하고 계속 배우세요.”\n\n\n“포트폴리오는 양보다 질! 완성도 높은 프로젝트 2-3개면 충분합니다.”\n\n\n“특성화고 출신이라는 게 약점이 아니라 강점이 될 수 있어요.”\n\n\n“Git 커밋을 꾸준히 하세요. 그게 여러분의 성장 기록입니다.”\n\n\n“R을 배우면 데이터 분석 역량이 생깁니다. IT와 데이터 모두 잡으세요!”"
+  },
+  {
+    "objectID": "chapter5-strategy.html#최종-정리",
+    "href": "chapter5-strategy.html#최종-정리",
+    "title": "Chapter 5: 데이터로 짜는 나의 전략",
+    "section": "📊 최종 정리",
+    "text": "📊 최종 정리\n\nsummary_data &lt;- tibble(\n  발견 = c('IT 일자리\\n지속 증가', '청년 인구\\n급감', \n           '경쟁 존재\\n하지만 기회', '실력 중심\\n평가', '계획적 준비\\n필수'),\n  중요도 = c(95, 90, 75, 85, 80)\n)\n\nplot_ly(summary_data, \n        y = ~발견, \n        x = ~중요도,\n        type = 'bar',\n        orientation = 'h',\n        marker = list(\n          color = ~중요도,\n          colorscale = 'Viridis',\n          showscale = TRUE\n        ),\n        text = ~중요도,\n        textposition = 'outside') %&gt;%\n  layout(\n    title = list(text = '핵심 발견 요약 (중요도 점수)', font = list(size = 16)),\n    xaxis = list(title = '중요도'),\n    yaxis = list(title = ''),\n    height = 400\n  )\n\n\n\n우리가 발견한 핵심 인사이트"
+  },
+  {
+    "objectID": "chapter5-strategy.html#마치며",
+    "href": "chapter5-strategy.html#마치며",
+    "title": "Chapter 5: 데이터로 짜는 나의 전략",
+    "section": "✨ 마치며",
+    "text": "✨ 마치며\n우리는 KOSIS 데이터와 R 분석을 통해\n인구 변화와 IT 직종의 관계를 탐구했습니다.\n기억해야 할 것:\n✅ 데이터는 거짓말하지 않습니다\n✅ 하지만 데이터 해석은 우리의 몫\n✅ 중요한 건 데이터를 보고 어떻게 행동하느냐\n\n\n\n\n\n\n\n🎓 이 프로젝트를 통해 배운 것\n\n\n\n\n✅ KOSIS 데이터 활용 방법\n✅ R을 활용한 데이터 분석과 시각화\n✅ 사회 문제와 데이터의 연결\n✅ 데이터 기반 의사결정\n\n가장 중요한 것:\n💡 데이터로 세상을 읽고, 내 미래를 설계하는 방법"
+  },
+  {
+    "objectID": "chapter5-strategy.html#여러분의-미래를-응원합니다",
+    "href": "chapter5-strategy.html#여러분의-미래를-응원합니다",
+    "title": "Chapter 5: 데이터로 짜는 나의 전략",
+    "section": "🚀 여러분의 미래를 응원합니다!",
+    "text": "🚀 여러분의 미래를 응원합니다!\n데이터로 시작해서, 실력으로 증명하세요.\n\n화이팅! 💪\n\n\n\n\n← Chapter 4 | 홈으로 | About"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+  }
+]

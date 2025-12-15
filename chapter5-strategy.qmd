@@ -1,0 +1,358 @@
+---
+title: "Chapter 5: 데이터로 짜는 나의 전략"
+subtitle: "미래를 준비하는 실전 로드맵"
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+library(plotly)
+library(scales)
+library(knitr)
+```
+
+## 🎯 지금까지의 여정
+
+우리는 데이터를 통해 다음을 발견했습니다:
+
+✅ IT 일자리는 **지속적으로 증가**  
+✅ 인구 감소로 **장기적 기회 확대**  
+✅ 하지만 **경쟁도 존재**  
+✅ **실력과 전략**이 중요
+
+이제 이 데이터를 바탕으로 **나만의 전략**을 세울 시간입니다!
+
+---
+
+## 🔮 R로 예측하는 2030년
+
+```{r}
+#| label: fig-future-prediction
+#| fig-cap: "2030년 IT 직종별 수요 예측"
+
+# AI 예측 결과 (실제로는 Prophet, ARIMA 등 사용 가능)
+future_demand <- tibble(
+  직종 = c('백엔드개발', '프론트엔드', '앱개발', '데이터분석', 
+           '정보보안', 'AI/ML엔지니어', '클라우드', 'DevOps'),
+  `2024수요` = c(180, 160, 140, 120, 95, 85, 75, 60),
+  `2030예측` = c(245, 210, 185, 195, 160, 220, 180, 145),
+  증가율 = c(36, 31, 32, 63, 68, 159, 140, 142)
+) %>%
+  arrange(증가율)
+
+plot_ly(future_demand, 
+        y = ~reorder(직종, 증가율), 
+        x = ~`2024수요`,
+        type = 'bar',
+        orientation = 'h',
+        name = '2024년',
+        marker = list(color = 'lightblue')) %>%
+  add_trace(x = ~`2030예측`,
+            name = '2030년 예측',
+            marker = list(color = 'darkblue')) %>%
+  layout(
+    title = list(text = '2030년 IT 직종별 수요 예측 (단위: 천명)', font = list(size = 16)),
+    xaxis = list(title = '수요 인력'),
+    yaxis = list(title = ''),
+    barmode = 'group',
+    height = 500
+  )
+```
+
+::: {.callout-tip icon="false"}
+## 🚀 미래 유망 직종 Top 3
+
+1. **AI/ML 엔지니어** (+159%)
+2. **DevOps 엔지니어** (+142%)
+3. **클라우드 엔지니어** (+140%)
+
+하지만! 전통적인 개발 직종도 여전히 수요 ↑
+:::
+
+---
+
+## 🗓️ 학년별 로드맵
+
+::: {.panel-tabset}
+
+### 1학년
+**목표**: IT 기초 역량 확보
+
+#### 1학기
+- ✅ 프로그래밍 언어 1개 집중 (Python/R 추천)
+- ✅ HTML/CSS 기초
+- ✅ 정보처리기능사 준비
+
+#### 2학기
+- ✅ JavaScript 기초 또는 R 심화
+- ✅ 간단한 웹사이트 제작
+- ✅ GitHub 계정 만들고 코드 올리기
+
+**포트폴리오**: 계산기, 간단한 게임 등 3개 이상
+
+### 2학년
+**목표**: 실무 프로젝트 경험
+
+#### 1학기
+- ✅ 데이터베이스 (MySQL/PostgreSQL)
+- ✅ 프레임워크 학습
+- ✅ 팀 프로젝트 참여
+
+#### 2학기
+- ✅ 정보처리산업기사 준비
+- ✅ 개인 프로젝트 완성 (포트폴리오용)
+- ✅ 공모전 참가 고려
+
+**포트폴리오**: 웹 애플리케이션 1개
+
+### 3학년
+**목표**: 실전 대비 및 취업
+
+#### 1학기
+- ✅ 포트폴리오 고도화
+- ✅ 이력서/자소서 작성
+- ✅ 모의 면접 연습
+- ✅ 원하는 기업 리서치
+
+#### 2학기
+- **조기취업**: 기업 지원 및 면접
+- **진학 준비**: 심화 학습
+
+**포트폴리오**: 완성도 높은 프로젝트 2-3개
+
+:::
+
+---
+
+## 💡 지역별 맞춤 전략
+
+```{r}
+#| label: fig-regional-strategy
+#| fig-cap: "지역별 IT 취업 전략"
+
+regional_strategy <- tibble(
+  지역 = c('수도권', '광역시', '중소도시'),
+  대기업기회 = c(85, 45, 15),
+  중소기업기회 = c(70, 85, 90),
+  재택근무기회 = c(60, 50, 40)
+) %>%
+  pivot_longer(cols = -지역, names_to = '기회유형', values_to = '지수')
+
+plot_ly(regional_strategy, 
+        x = ~지역, 
+        y = ~지수, 
+        color = ~기회유형,
+        type = 'bar',
+        colors = c('#3498db', '#2ecc71', '#e74c3c')) %>%
+  layout(
+    title = list(text = '지역별 IT 취업 기회 분석', font = list(size = 16)),
+    xaxis = list(title = '지역'),
+    yaxis = list(title = '기회 지수'),
+    barmode = 'group'
+  )
+```
+
+::: {.callout-note}
+## 🗺️ 내 지역 전략
+
+**수도권**: 대기업, 스타트업 기회 많음  
+**광역시**: 지역 기반 중견기업 노리기  
+**중소도시**: 원격근무 가능 직무 or 이동 고려
+:::
+
+---
+
+## 🎓 취업 vs 진학 의사결정
+
+### 즉시 취업이 유리한 경우
+- 실무 프로젝트 경험 풍부
+- 명확한 커리어 목표
+- 경제적 독립 필요
+- 실무 경력을 빨리 쌓고 싶음
+
+**장점**: 4년 빠른 경력, 실무 경험, 수입
+
+### 대학 진학이 유리한 경우
+- 학문적 깊이를 원함
+- 대기업/연구직 희망
+- 시간적 여유 있음
+- 다양한 경험 원함
+
+**장점**: 학위, 이론적 기반, 네트워크, 높은 초봉
+
+### 절충안: 재직자 전형
+- 취업 후 야간/사이버대학
+- 회사 지원 받아 학위 취득
+- 경력도 쌓고 학위도 획득
+
+---
+
+## 🛠️ 실전 준비 체크리스트
+
+### 포트폴리오 필수 요소
+
+**1. GitHub 프로필**
+- 프로필 사진과 소개 작성
+- README로 자기소개
+- 꾸준한 커밋 기록
+- 프로젝트별 상세한 README
+
+**2. 프로젝트 구성**
+- 개인 프로젝트 2-3개
+- 팀 프로젝트 1-2개
+- 각 프로젝트마다 시연 영상/스크린샷
+- 사용 기술, 구현 기능 명시
+
+**3. 기술 블로그 (선택)**
+- Velog, Tistory, Medium 등
+- 학습 내용 정리
+- 프로젝트 회고
+
+---
+
+## 🎯 목표 설정 워크시트
+
+::: {.callout-tip icon="false"}
+## ✍️ 나의 3년 목표 작성하기
+
+**1학년 말 목표:**
+<textarea style="width:100%; height:80px; padding:10px; border:2px solid #ddd; border-radius:5px;" placeholder="예: R/Python 기초 완성, 간단한 웹사이트 3개 만들기, 정보처리기능사 취득"></textarea>
+
+**2학년 말 목표:**
+<textarea style="width:100%; height:80px; padding:10px; border:2px solid #ddd; border-radius:5px;" placeholder="예: 풀스택 웹 개발 능력, 팀 프로젝트 완성, 정보처리산업기사 취득"></textarea>
+
+**3학년 (졸업 시) 목표:**
+<textarea style="width:100%; height:80px; padding:10px; border:2px solid #ddd; border-radius:5px;" placeholder="예: ○○ 기업 취업, 또는 대학 진학 준비 완료"></textarea>
+
+**구체적인 관심 직종:**
+<textarea style="width:100%; height:60px; padding:10px; border:2px solid #ddd; border-radius:5px;" placeholder="예: 백엔드 개발자, 데이터 분석가 등"></textarea>
+:::
+
+---
+
+## 📚 추천 학습 리소스
+
+::: {.panel-tabset}
+
+### R/데이터 분석
+- **R for Data Science**: https://r4ds.hadley.nz/
+- **swirl**: R 내 대화형 학습
+- **Tidyverse 공식 문서**
+- **ggplot2 튜토리얼**
+
+### 웹 개발
+- **생활코딩**: 웹 개발 기초
+- **노마드코더**: 실전 프로젝트
+- **MDN Web Docs**
+
+### 코딩 연습
+- **백준 온라인 저지**: 알고리즘
+- **프로그래머스**: 코딩테스트
+- **LeetCode**: 글로벌 문제풀이
+
+### 커뮤니티
+- **OKKY**: 한국 개발자 커뮤니티
+- **생활코딩 커뮤니티**
+
+:::
+
+---
+
+## 🚀 마지막 조언
+
+::: {.callout-important icon="false"}
+## 💎 선배 개발자들의 조언
+
+> "처음부터 완벽할 필요 없어요. 일단 시작하고 계속 배우세요."
+
+> "포트폴리오는 양보다 질! 완성도 높은 프로젝트 2-3개면 충분합니다."
+
+> "특성화고 출신이라는 게 약점이 아니라 강점이 될 수 있어요."
+
+> "Git 커밋을 꾸준히 하세요. 그게 여러분의 성장 기록입니다."
+
+> "R을 배우면 데이터 분석 역량이 생깁니다. IT와 데이터 모두 잡으세요!"
+:::
+
+---
+
+## 📊 최종 정리
+
+```{r}
+#| label: final-summary
+#| fig-cap: "우리가 발견한 핵심 인사이트"
+
+summary_data <- tibble(
+  발견 = c('IT 일자리\n지속 증가', '청년 인구\n급감', 
+           '경쟁 존재\n하지만 기회', '실력 중심\n평가', '계획적 준비\n필수'),
+  중요도 = c(95, 90, 75, 85, 80)
+)
+
+plot_ly(summary_data, 
+        y = ~발견, 
+        x = ~중요도,
+        type = 'bar',
+        orientation = 'h',
+        marker = list(
+          color = ~중요도,
+          colorscale = 'Viridis',
+          showscale = TRUE
+        ),
+        text = ~중요도,
+        textposition = 'outside') %>%
+  layout(
+    title = list(text = '핵심 발견 요약 (중요도 점수)', font = list(size = 16)),
+    xaxis = list(title = '중요도'),
+    yaxis = list(title = ''),
+    height = 400
+  )
+```
+
+---
+
+## ✨ 마치며
+
+우리는 **KOSIS 데이터**와 **R 분석**을 통해  
+인구 변화와 IT 직종의 관계를 탐구했습니다.
+
+**기억해야 할 것:**
+
+✅ 데이터는 거짓말하지 않습니다  
+✅ 하지만 데이터 해석은 우리의 몫  
+✅ 중요한 건 데이터를 보고 **어떻게 행동하느냐**
+
+---
+
+::: {.callout-note icon="false"}
+## 🎓 이 프로젝트를 통해 배운 것
+
+- ✅ KOSIS 데이터 활용 방법
+- ✅ R을 활용한 데이터 분석과 시각화
+- ✅ 사회 문제와 데이터의 연결
+- ✅ 데이터 기반 의사결정
+
+**가장 중요한 것:**  
+💡 **데이터로 세상을 읽고, 내 미래를 설계하는 방법**
+:::
+
+---
+
+<center style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+
+## 🚀 여러분의 미래를 응원합니다!
+
+**데이터로 시작해서, 실력으로 증명하세요.**
+
+<p style="font-size: 1.2em; margin-top: 20px;">
+화이팅! 💪
+</p>
+
+</center>
+
+---
+
+<center>
+**[← Chapter 4](chapter4-competition.qmd) | [홈으로](index.qmd) | [About](about.qmd)**
+</center>

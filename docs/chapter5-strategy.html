@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Chapter 5: 데이터로 짜는 나의 전략 – IT 직종과 인구 변화</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-fa0cd6702236e5a3f1a908cafa2a0b84.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-2b33e5162d7a0b7ca21b3866e5331e21.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-fa0cd6702236e5a3f1a908cafa2a0b84.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "일치 없음",
+    "search-matching-documents-text": "일치된 문서",
+    "search-copy-link-title": "검색 링크 복사",
+    "search-hide-matches-text": "추가 검색 결과 숨기기",
+    "search-more-match-text": "추가 검색결과",
+    "search-more-matches-text": "추가 검색결과",
+    "search-clear-button-title": "제거",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "취소",
+    "search-submit-button-title": "검색",
+    "search-label": "검색"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="site_libs/plotly-binding-4.11.0/plotly.js"></script>
+
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+
+<link rel="stylesheet" href="styles/custom.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">IT 직종과 인구 변화</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="검색"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="탐색 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">앞으로의 취업시장 짚어보기</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chapter0-인구그래프.html"> 
+<span class="menu-text">인구그래프</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chapter1-opportunity.html"> 
+<span class="menu-text">미래를 이끌 산업분야</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://kosis.kr/index/index.do"> 
+<span class="menu-text">KOSIS사이트 바로가기</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="다크 모드 전환"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Chapter 5: 데이터로 짜는 나의 전략</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="검색" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="검색"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">IT직종과 인구변화</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="토글 섹션">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">앞으로의 취업시장 짚어보기</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter0-인구그래프.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">인구그래프</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter1-opportunity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">미래를 이끌 산업분야</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">목차</h2>
+   
+  <ul>
+  <li><a href="#지금까지의-여정" id="toc-지금까지의-여정" class="nav-link active" data-scroll-target="#지금까지의-여정">🎯 지금까지의 여정</a></li>
+  <li><a href="#r로-예측하는-2030년" id="toc-r로-예측하는-2030년" class="nav-link" data-scroll-target="#r로-예측하는-2030년">🔮 R로 예측하는 2030년</a></li>
+  <li><a href="#학년별-로드맵" id="toc-학년별-로드맵" class="nav-link" data-scroll-target="#학년별-로드맵">🗓️ 학년별 로드맵</a></li>
+  <li><a href="#지역별-맞춤-전략" id="toc-지역별-맞춤-전략" class="nav-link" data-scroll-target="#지역별-맞춤-전략">💡 지역별 맞춤 전략</a></li>
+  <li><a href="#취업-vs-진학-의사결정" id="toc-취업-vs-진학-의사결정" class="nav-link" data-scroll-target="#취업-vs-진학-의사결정">🎓 취업 vs 진학 의사결정</a>
+  <ul class="collapse">
+  <li><a href="#즉시-취업이-유리한-경우" id="toc-즉시-취업이-유리한-경우" class="nav-link" data-scroll-target="#즉시-취업이-유리한-경우">즉시 취업이 유리한 경우</a></li>
+  <li><a href="#대학-진학이-유리한-경우" id="toc-대학-진학이-유리한-경우" class="nav-link" data-scroll-target="#대학-진학이-유리한-경우">대학 진학이 유리한 경우</a></li>
+  <li><a href="#절충안-재직자-전형" id="toc-절충안-재직자-전형" class="nav-link" data-scroll-target="#절충안-재직자-전형">절충안: 재직자 전형</a></li>
+  </ul></li>
+  <li><a href="#실전-준비-체크리스트" id="toc-실전-준비-체크리스트" class="nav-link" data-scroll-target="#실전-준비-체크리스트">🛠️ 실전 준비 체크리스트</a>
+  <ul class="collapse">
+  <li><a href="#포트폴리오-필수-요소" id="toc-포트폴리오-필수-요소" class="nav-link" data-scroll-target="#포트폴리오-필수-요소">포트폴리오 필수 요소</a></li>
+  </ul></li>
+  <li><a href="#목표-설정-워크시트" id="toc-목표-설정-워크시트" class="nav-link" data-scroll-target="#목표-설정-워크시트">🎯 목표 설정 워크시트</a></li>
+  <li><a href="#추천-학습-리소스" id="toc-추천-학습-리소스" class="nav-link" data-scroll-target="#추천-학습-리소스">📚 추천 학습 리소스</a></li>
+  <li><a href="#마지막-조언" id="toc-마지막-조언" class="nav-link" data-scroll-target="#마지막-조언">🚀 마지막 조언</a></li>
+  <li><a href="#최종-정리" id="toc-최종-정리" class="nav-link" data-scroll-target="#최종-정리">📊 최종 정리</a></li>
+  <li><a href="#마치며" id="toc-마치며" class="nav-link" data-scroll-target="#마치며">✨ 마치며</a></li>
+  <li><a href="#여러분의-미래를-응원합니다" id="toc-여러분의-미래를-응원합니다" class="nav-link" data-scroll-target="#여러분의-미래를-응원합니다">🚀 여러분의 미래를 응원합니다!</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Chapter 5: 데이터로 짜는 나의 전략</h1>
+<p class="subtitle lead">미래를 준비하는 실전 로드맵</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="지금까지의-여정" class="level2">
+<h2 data-anchor-id="지금까지의-여정">🎯 지금까지의 여정</h2>
+<p>우리는 데이터를 통해 다음을 발견했습니다:</p>
+<p>✅ IT 일자리는 <strong>지속적으로 증가</strong><br>
+✅ 인구 감소로 <strong>장기적 기회 확대</strong><br>
+✅ 하지만 <strong>경쟁도 존재</strong><br>
+✅ <strong>실력과 전략</strong>이 중요</p>
+<p>이제 이 데이터를 바탕으로 <strong>나만의 전략</strong>을 세울 시간입니다!</p>
+<hr>
+</section>
+<section id="r로-예측하는-2030년" class="level2">
+<h2 data-anchor-id="r로-예측하는-2030년">🔮 R로 예측하는 2030년</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># AI 예측 결과 (실제로는 Prophet, ARIMA 등 사용 가능)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>future_demand <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  직종 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'백엔드개발'</span>, <span class="st">'프론트엔드'</span>, <span class="st">'앱개발'</span>, <span class="st">'데이터분석'</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>           <span class="st">'정보보안'</span>, <span class="st">'AI/ML엔지니어'</span>, <span class="st">'클라우드'</span>, <span class="st">'DevOps'</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">2024수요</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">180</span>, <span class="dv">160</span>, <span class="dv">140</span>, <span class="dv">120</span>, <span class="dv">95</span>, <span class="dv">85</span>, <span class="dv">75</span>, <span class="dv">60</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">2030예측</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">245</span>, <span class="dv">210</span>, <span class="dv">185</span>, <span class="dv">195</span>, <span class="dv">160</span>, <span class="dv">220</span>, <span class="dv">180</span>, <span class="dv">145</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  증가율 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">36</span>, <span class="dv">31</span>, <span class="dv">32</span>, <span class="dv">63</span>, <span class="dv">68</span>, <span class="dv">159</span>, <span class="dv">140</span>, <span class="dv">142</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(증가율)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(future_demand, </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="sc">~</span><span class="fu">reorder</span>(직종, 증가율), </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="sc">~</span><span class="st">`</span><span class="at">2024수요</span><span class="st">`</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">'bar'</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">orientation =</span> <span class="st">'h'</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">name =</span> <span class="st">'2024년'</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">marker =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">'lightblue'</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_trace</span>(<span class="at">x =</span> <span class="sc">~</span><span class="st">`</span><span class="at">2030예측</span><span class="st">`</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">name =</span> <span class="st">'2030년 예측'</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">marker =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">'darkblue'</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">'2030년 IT 직종별 수요 예측 (단위: 천명)'</span>, <span class="at">font =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">16</span>)),</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'수요 인력'</span>),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">''</span>),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">barmode =</span> <span class="st">'group'</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="dv">500</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-future-prediction" class="cell-output-display quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-future-prediction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-e7dee81ca7612114a937" style="width:100%;height:487px;"></div>
+<script type="application/json" data-for="htmlwidget-e7dee81ca7612114a937">{"x":{"visdat":{"479420d78cc":["function () ","plotlyVisDat"]},"cur_data":"479420d78cc","attrs":{"479420d78cc":{"y":{},"x":{},"orientation":"h","marker":{"color":"lightblue"},"name":"2024년","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"479420d78cc.1":{"y":{},"x":{},"orientation":"h","marker":{"color":"darkblue"},"name":"2030년 예측","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true}},"layout":{"height":500,"margin":{"b":40,"l":60,"t":25,"r":10},"title":{"text":"2030년 IT 직종별 수요 예측 (단위: 천명)","font":{"size":16}},"xaxis":{"domain":[0,1],"automargin":true,"title":"수요 인력"},"yaxis":{"domain":[0,1],"automargin":true,"title":"","type":"category","categoryorder":"array","categoryarray":["프론트엔드","앱개발","백엔드개발","데이터분석","정보보안","클라우드","DevOps","AI/ML엔지니어"]},"barmode":"group","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"y":["프론트엔드","앱개발","백엔드개발","데이터분석","정보보안","클라우드","DevOps","AI/ML엔지니어"],"x":[160,140,180,120,95,75,60,85],"orientation":"h","marker":{"color":"lightblue","line":{"color":"rgba(31,119,180,1)"}},"name":"2024년","type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"y":["프론트엔드","앱개발","백엔드개발","데이터분석","정보보안","클라우드","DevOps","AI/ML엔지니어"],"x":[210,185,245,195,160,180,145,220],"orientation":"h","marker":{"color":"darkblue","line":{"color":"rgba(255,127,14,1)"}},"name":"2030년 예측","type":"bar","error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-future-prediction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;1: 2030년 IT 직종별 수요 예측
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🚀 미래 유망 직종 Top 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>AI/ML 엔지니어</strong> (+159%)</li>
+<li><strong>DevOps 엔지니어</strong> (+142%)</li>
+<li><strong>클라우드 엔지니어</strong> (+140%)</li>
+</ol>
+<p>하지만! 전통적인 개발 직종도 여전히 수요 ↑</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="학년별-로드맵" class="level2">
+<h2 data-anchor-id="학년별-로드맵">🗓️ 학년별 로드맵</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">1학년</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">2학년</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">3학년</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>목표</strong>: IT 기초 역량 확보</p>
+<section id="학기" class="level4">
+<h4 data-anchor-id="학기">1학기</h4>
+<ul>
+<li>✅ 프로그래밍 언어 1개 집중 (Python/R 추천)</li>
+<li>✅ HTML/CSS 기초</li>
+<li>✅ 정보처리기능사 준비</li>
+</ul>
+</section>
+<section id="학기-1" class="level4">
+<h4 data-anchor-id="학기-1">2학기</h4>
+<ul>
+<li>✅ JavaScript 기초 또는 R 심화</li>
+<li>✅ 간단한 웹사이트 제작</li>
+<li>✅ GitHub 계정 만들고 코드 올리기</li>
+</ul>
+<p><strong>포트폴리오</strong>: 계산기, 간단한 게임 등 3개 이상</p>
+</section>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>목표</strong>: 실무 프로젝트 경험</p>
+<section id="학기-2" class="level4">
+<h4 data-anchor-id="학기-2">1학기</h4>
+<ul>
+<li>✅ 데이터베이스 (MySQL/PostgreSQL)</li>
+<li>✅ 프레임워크 학습</li>
+<li>✅ 팀 프로젝트 참여</li>
+</ul>
+</section>
+<section id="학기-3" class="level4">
+<h4 data-anchor-id="학기-3">2학기</h4>
+<ul>
+<li>✅ 정보처리산업기사 준비</li>
+<li>✅ 개인 프로젝트 완성 (포트폴리오용)</li>
+<li>✅ 공모전 참가 고려</li>
+</ul>
+<p><strong>포트폴리오</strong>: 웹 애플리케이션 1개</p>
+</section>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><strong>목표</strong>: 실전 대비 및 취업</p>
+<section id="학기-4" class="level4">
+<h4 data-anchor-id="학기-4">1학기</h4>
+<ul>
+<li>✅ 포트폴리오 고도화</li>
+<li>✅ 이력서/자소서 작성</li>
+<li>✅ 모의 면접 연습</li>
+<li>✅ 원하는 기업 리서치</li>
+</ul>
+</section>
+<section id="학기-5" class="level4">
+<h4 data-anchor-id="학기-5">2학기</h4>
+<ul>
+<li><strong>조기취업</strong>: 기업 지원 및 면접</li>
+<li><strong>진학 준비</strong>: 심화 학습</li>
+</ul>
+<p><strong>포트폴리오</strong>: 완성도 높은 프로젝트 2-3개</p>
+</section>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="지역별-맞춤-전략" class="level2">
+<h2 data-anchor-id="지역별-맞춤-전략">💡 지역별 맞춤 전략</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>regional_strategy <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  지역 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'수도권'</span>, <span class="st">'광역시'</span>, <span class="st">'중소도시'</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  대기업기회 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">45</span>, <span class="dv">15</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  중소기업기회 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">70</span>, <span class="dv">85</span>, <span class="dv">90</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  재택근무기회 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">50</span>, <span class="dv">40</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>지역, <span class="at">names_to =</span> <span class="st">'기회유형'</span>, <span class="at">values_to =</span> <span class="st">'지수'</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(regional_strategy, </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="sc">~</span>지역, </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="sc">~</span>지수, </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="sc">~</span>기회유형,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">'bar'</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">'#3498db'</span>, <span class="st">'#2ecc71'</span>, <span class="st">'#e74c3c'</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">'지역별 IT 취업 기회 분석'</span>, <span class="at">font =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">16</span>)),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'지역'</span>),</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'기회 지수'</span>),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">barmode =</span> <span class="st">'group'</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-regional-strategy" class="cell-output-display quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-regional-strategy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-49788d0f02cc10af785c" style="width:100%;height:487px;"></div>
+<script type="application/json" data-for="htmlwidget-49788d0f02cc10af785c">{"x":{"visdat":{"479452762af1":["function () ","plotlyVisDat"]},"cur_data":"479452762af1","attrs":{"479452762af1":{"x":{},"y":{},"color":{},"colors":["#3498db","#2ecc71","#e74c3c"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":{"text":"지역별 IT 취업 기회 분석","font":{"size":16}},"xaxis":{"domain":[0,1],"automargin":true,"title":"지역","type":"category","categoryorder":"array","categoryarray":["광역시","수도권","중소도시"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"기회 지수"},"barmode":"group","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["수도권","광역시","중소도시"],"y":[85,45,15],"type":"bar","name":"대기업기회","marker":{"color":"rgba(52,152,219,1)","line":{"color":"rgba(52,152,219,1)"}},"textfont":{"color":"rgba(52,152,219,1)"},"error_y":{"color":"rgba(52,152,219,1)"},"error_x":{"color":"rgba(52,152,219,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["수도권","광역시","중소도시"],"y":[60,50,40],"type":"bar","name":"재택근무기회","marker":{"color":"rgba(46,204,113,1)","line":{"color":"rgba(46,204,113,1)"}},"textfont":{"color":"rgba(46,204,113,1)"},"error_y":{"color":"rgba(46,204,113,1)"},"error_x":{"color":"rgba(46,204,113,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["수도권","광역시","중소도시"],"y":[70,85,90],"type":"bar","name":"중소기업기회","marker":{"color":"rgba(231,76,60,1)","line":{"color":"rgba(231,76,60,1)"}},"textfont":{"color":"rgba(231,76,60,1)"},"error_y":{"color":"rgba(231,76,60,1)"},"error_x":{"color":"rgba(231,76,60,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regional-strategy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;2: 지역별 IT 취업 전략
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🗺️ 내 지역 전략
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>수도권</strong>: 대기업, 스타트업 기회 많음<br>
+<strong>광역시</strong>: 지역 기반 중견기업 노리기<br>
+<strong>중소도시</strong>: 원격근무 가능 직무 or 이동 고려</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="취업-vs-진학-의사결정" class="level2">
+<h2 data-anchor-id="취업-vs-진학-의사결정">🎓 취업 vs 진학 의사결정</h2>
+<section id="즉시-취업이-유리한-경우" class="level3">
+<h3 data-anchor-id="즉시-취업이-유리한-경우">즉시 취업이 유리한 경우</h3>
+<ul>
+<li>실무 프로젝트 경험 풍부</li>
+<li>명확한 커리어 목표</li>
+<li>경제적 독립 필요</li>
+<li>실무 경력을 빨리 쌓고 싶음</li>
+</ul>
+<p><strong>장점</strong>: 4년 빠른 경력, 실무 경험, 수입</p>
+</section>
+<section id="대학-진학이-유리한-경우" class="level3">
+<h3 data-anchor-id="대학-진학이-유리한-경우">대학 진학이 유리한 경우</h3>
+<ul>
+<li>학문적 깊이를 원함</li>
+<li>대기업/연구직 희망</li>
+<li>시간적 여유 있음</li>
+<li>다양한 경험 원함</li>
+</ul>
+<p><strong>장점</strong>: 학위, 이론적 기반, 네트워크, 높은 초봉</p>
+</section>
+<section id="절충안-재직자-전형" class="level3">
+<h3 data-anchor-id="절충안-재직자-전형">절충안: 재직자 전형</h3>
+<ul>
+<li>취업 후 야간/사이버대학</li>
+<li>회사 지원 받아 학위 취득</li>
+<li>경력도 쌓고 학위도 획득</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="실전-준비-체크리스트" class="level2">
+<h2 data-anchor-id="실전-준비-체크리스트">🛠️ 실전 준비 체크리스트</h2>
+<section id="포트폴리오-필수-요소" class="level3">
+<h3 data-anchor-id="포트폴리오-필수-요소">포트폴리오 필수 요소</h3>
+<p><strong>1. GitHub 프로필</strong> - 프로필 사진과 소개 작성 - README로 자기소개 - 꾸준한 커밋 기록 - 프로젝트별 상세한 README</p>
+<p><strong>2. 프로젝트 구성</strong> - 개인 프로젝트 2-3개 - 팀 프로젝트 1-2개 - 각 프로젝트마다 시연 영상/스크린샷 - 사용 기술, 구현 기능 명시</p>
+<p><strong>3. 기술 블로그 (선택)</strong> - Velog, Tistory, Medium 등 - 학습 내용 정리 - 프로젝트 회고</p>
+<hr>
+</section>
+</section>
+<section id="목표-설정-워크시트" class="level2">
+<h2 data-anchor-id="목표-설정-워크시트">🎯 목표 설정 워크시트</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+✍️ 나의 3년 목표 작성하기
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<strong>1학년 말 목표:</strong>
+<textarea style="width:100%; height:80px; padding:10px; border:2px solid #ddd; border-radius:5px;" placeholder="예: R/Python 기초 완성, 간단한 웹사이트 3개 만들기, 정보처리기능사 취득"></textarea>
+<strong>2학년 말 목표:</strong>
+<textarea style="width:100%; height:80px; padding:10px; border:2px solid #ddd; border-radius:5px;" placeholder="예: 풀스택 웹 개발 능력, 팀 프로젝트 완성, 정보처리산업기사 취득"></textarea>
+<strong>3학년 (졸업 시) 목표:</strong>
+<textarea style="width:100%; height:80px; padding:10px; border:2px solid #ddd; border-radius:5px;" placeholder="예: ○○ 기업 취업, 또는 대학 진학 준비 완료"></textarea>
+<strong>구체적인 관심 직종:</strong>
+<textarea style="width:100%; height:60px; padding:10px; border:2px solid #ddd; border-radius:5px;" placeholder="예: 백엔드 개발자, 데이터 분석가 등"></textarea>
+</div>
+</div>
+<hr>
+</section>
+<section id="추천-학습-리소스" class="level2">
+<h2 data-anchor-id="추천-학습-리소스">📚 추천 학습 리소스</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">R/데이터 분석</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">웹 개발</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">코딩 연습</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">커뮤니티</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ul>
+<li><strong>R for Data Science</strong>: https://r4ds.hadley.nz/</li>
+<li><strong>swirl</strong>: R 내 대화형 학습</li>
+<li><strong>Tidyverse 공식 문서</strong></li>
+<li><strong>ggplot2 튜토리얼</strong></li>
+</ul>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<ul>
+<li><strong>생활코딩</strong>: 웹 개발 기초</li>
+<li><strong>노마드코더</strong>: 실전 프로젝트</li>
+<li><strong>MDN Web Docs</strong></li>
+</ul>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<ul>
+<li><strong>백준 온라인 저지</strong>: 알고리즘</li>
+<li><strong>프로그래머스</strong>: 코딩테스트</li>
+<li><strong>LeetCode</strong>: 글로벌 문제풀이</li>
+</ul>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<ul>
+<li><strong>OKKY</strong>: 한국 개발자 커뮤니티</li>
+<li><strong>생활코딩 커뮤니티</strong></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="마지막-조언" class="level2">
+<h2 data-anchor-id="마지막-조언">🚀 마지막 조언</h2>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+💎 선배 개발자들의 조언
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>“처음부터 완벽할 필요 없어요. 일단 시작하고 계속 배우세요.”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>“포트폴리오는 양보다 질! 완성도 높은 프로젝트 2-3개면 충분합니다.”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>“특성화고 출신이라는 게 약점이 아니라 강점이 될 수 있어요.”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>“Git 커밋을 꾸준히 하세요. 그게 여러분의 성장 기록입니다.”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>“R을 배우면 데이터 분석 역량이 생깁니다. IT와 데이터 모두 잡으세요!”</p>
+</blockquote>
+</div>
+</div>
+<hr>
+</section>
+<section id="최종-정리" class="level2">
+<h2 data-anchor-id="최종-정리">📊 최종 정리</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>summary_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  발견 <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'IT 일자리</span><span class="sc">\n</span><span class="st">지속 증가'</span>, <span class="st">'청년 인구</span><span class="sc">\n</span><span class="st">급감'</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">'경쟁 존재</span><span class="sc">\n</span><span class="st">하지만 기회'</span>, <span class="st">'실력 중심</span><span class="sc">\n</span><span class="st">평가'</span>, <span class="st">'계획적 준비</span><span class="sc">\n</span><span class="st">필수'</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  중요도 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">90</span>, <span class="dv">75</span>, <span class="dv">85</span>, <span class="dv">80</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ly</span>(summary_data, </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="sc">~</span>발견, </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="sc">~</span>중요도,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">'bar'</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">orientation =</span> <span class="st">'h'</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">marker =</span> <span class="fu">list</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="sc">~</span>중요도,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">colorscale =</span> <span class="st">'Viridis'</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">showscale =</span> <span class="cn">TRUE</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">text =</span> <span class="sc">~</span>중요도,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">textposition =</span> <span class="st">'outside'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">'핵심 발견 요약 (중요도 점수)'</span>, <span class="at">font =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">16</span>)),</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">'중요도'</span>),</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">''</span>),</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="dv">400</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-de32dd964a7341bd32db" style="width:100%;height:487px;"></div>
+<script type="application/json" data-for="htmlwidget-de32dd964a7341bd32db">{"x":{"visdat":{"47943b297d72":["function () ","plotlyVisDat"]},"cur_data":"47943b297d72","attrs":{"47943b297d72":{"y":{},"x":{},"orientation":"h","marker":{"color":{},"colorscale":"Viridis","showscale":true},"text":{},"textposition":"outside","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"height":400,"margin":{"b":40,"l":60,"t":25,"r":10},"title":{"text":"핵심 발견 요약 (중요도 점수)","font":{"size":16}},"xaxis":{"domain":[0,1],"automargin":true,"title":"중요도"},"yaxis":{"domain":[0,1],"automargin":true,"title":"","type":"category","categoryorder":"array","categoryarray":["IT 일자리<br />지속 증가","경쟁 존재<br />하지만 기회","계획적 준비<br />필수","실력 중심<br />평가","청년 인구<br />급감"]},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"y":["IT 일자리<br />지속 증가","청년 인구<br />급감","경쟁 존재<br />하지만 기회","실력 중심<br />평가","계획적 준비<br />필수"],"x":[95,90,75,85,80],"orientation":"h","marker":{"color":[95,90,75,85,80],"colorscale":"Viridis","showscale":true,"line":{"color":"rgba(31,119,180,1)"}},"text":[95,90,75,85,80],"textposition":["outside","outside","outside","outside","outside"],"type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>우리가 발견한 핵심 인사이트</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="마치며" class="level2">
+<h2 data-anchor-id="마치며">✨ 마치며</h2>
+<p>우리는 <strong>KOSIS 데이터</strong>와 <strong>R 분석</strong>을 통해<br>
+인구 변화와 IT 직종의 관계를 탐구했습니다.</p>
+<p><strong>기억해야 할 것:</strong></p>
+<p>✅ 데이터는 거짓말하지 않습니다<br>
+✅ 하지만 데이터 해석은 우리의 몫<br>
+✅ 중요한 건 데이터를 보고 <strong>어떻게 행동하느냐</strong></p>
+<hr>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🎓 이 프로젝트를 통해 배운 것
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>✅ KOSIS 데이터 활용 방법</li>
+<li>✅ R을 활용한 데이터 분석과 시각화</li>
+<li>✅ 사회 문제와 데이터의 연결</li>
+<li>✅ 데이터 기반 의사결정</li>
+</ul>
+<p><strong>가장 중요한 것:</strong><br>
+💡 <strong>데이터로 세상을 읽고, 내 미래를 설계하는 방법</strong></p>
+</div>
+</div>
+<hr>
+<center style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+</center></section>
+<section id="여러분의-미래를-응원합니다" class="level2">
+<h2 data-anchor-id="여러분의-미래를-응원합니다">🚀 여러분의 미래를 응원합니다!</h2>
+<p><strong>데이터로 시작해서, 실력으로 증명하세요.</strong></p>
+<p style="font-size: 1.2em; margin-top: 20px;">
+화이팅! 💪
+</p>
+
+<hr>
+<center>
+<strong><a href="./chapter4-competition.html">← Chapter 4</a> | <a href="./index.html">홈으로</a> | <a href="./about.html">About</a></strong>
+</center>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "복사완료!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "복사완료!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

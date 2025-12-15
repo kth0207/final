@@ -1,0 +1,76 @@
+---
+title: "앞으로의 취업시장 짚어보기"
+subtitle: "데이터로 보는 IT 직종과 인구 변화"
+author: "2024-22277 김태희"
+format:
+  html:
+    page-layout: full
+    theme: default
+editor: visual
+editor_options: 
+  chunk_output_type: console
+runtime: shiny
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(plotly)
+library(usethis)
+```
+
+
+
+## 시작하며
+
+\>두 기사를 보며 생각을 나누어 봅시다
+
+<center>
+**[📰 조선일보 - IT 인력난과 인구 절벽](https://www.chosun.com/opinion/editorial/2025/11/17/IYHJQIKFUZEUZDLY5KMPV54FTA/){target="_blank" style="color: purple; text-decoration: underline;"}**
+
+**[📰 아시아경제 - 청년 인구 감소와 취업 시장](https://view.asiae.co.kr/article/2025062508402377108){target="_blank" style="color: navy; text-decoration: underline;"}**
+</center>
+
+
+
+## 오늘의 수업에서는
+**KOSIS(국가통계포털) 데이터**를 활용하여 IT 직종 수요 증가와 인구 감소의 관계를 탐구합니다.
+
+::: {.callout-tip}
+### 탐구 질문
+- IT 직종은 정말 수요가 늘어나고 있을까?
+- 다른 직종과 비교하면 어떨까?
+- 인구 감소가 IT 취업 시장에 어떤 영향을 미칠까?
+- 우리에게 어떤 기회와 도전이 있을까?
+:::
+
+
+
+
+::: {.grid cols="3" gutter="2" style="text-align: center;"}
+
+::: {.g-col}
+<div class="cardbox">
+<h3>Chapter 1</h3>
+<b>인구 감소 충격</b><br>
+생산인구 데이터 탐색
+</div>
+:::
+
+::: {.g-col}
+<div class="cardbox">
+<h3>Chapter 2</h3>
+<b>미래를 이끌 산업분야</b><br>
+2019년~2025년<br>실업률 및 취업자 추이<br>
+데이터 산업 분야 인력 부족률
+</div>
+:::
+
+
+
+:::
+
+
+<center>
+**[인구그래프 →](chapter0-인구그래프.qmd)**
+</center>
