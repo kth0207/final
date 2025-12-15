@@ -25,76 +25,135 @@ theme_set(theme_minimal(base_size = 12))
 #| fig-width: 10
 #| fig-height: 6
 
-# 데이터 읽기 (한글 인코딩 처리)
-df_unemp <- read_csv("성_연령별_실업률_20251208101738.csv", 
-                     locale = locale(encoding = "EUC-KR"))
+# 필요한 패키지 로드
+library(dplyr)
+library(plotly)
+library(readr)
 
-# 20-29세 데이터만 추출
-df_20s <- df_unemp %>%
-  filter(grepl("20 - 29", 연령계층별))
+# 데이터 읽기 (EUC-KR 인코딩)
+df <- read_csv("연령별_경제활동인구_총괄_20251209103015.csv", 
+               locale = locale(encoding = "EUC-KR"),
+               col_names = FALSE)
 
-# 분기별 데이터 열 이름 선택
-quarter_cols_unemp <- colnames(df_unemp)[grepl("\\d{4}\\.\\d/4", colnames(df_unemp))]
+# 데이터 재구조화
+periods <- as.character(df[1, -1])
+indicators <- as.character(df[2, -1])
+values <- as.character(df[3, -1])
 
-df_long_unemp <- df_20s %>%
-  select(성별, 연령계층별, all_of(quarter_cols_unemp)) %>%
-  pivot_longer(
-    cols = all_of(quarter_cols_unemp),
-    names_to = "분기",
-    values_to = "실업률"
-  ) %>%
-  mutate(
-    년도 = as.numeric(str_extract(분기, "^\\d{4}")),
-    분기번호 = as.numeric(str_extract(분기, "(?<=\\.)\\d(?=/4)")),
-    시점 = 년도 + (분기번호 - 1) * 0.25,
-    분기라벨 = paste0(년도, "년 ", 분기번호, "분기"),
-    성별_label = case_when(
-      성별 == "계" ~ "전체",
-      성별 == "남자" ~ "남성",
-      성별 == "여자" ~ "여성",
-      TRUE ~ 성별
+# 데이터프레임 생성
+data_df <- data.frame(
+  period = periods,
+  indicator = indicators,
+  value = values,
+  stringsAsFactors = FALSE
+)
+
+# 숫자로 변환
+data_df$value <- as.numeric(data_df$value)
+
+# 각 지표별로 분리 및 그룹화
+df_employed <- data_df %>% 
+  filter(indicator == "취업자 (천명)") %>%
+  group_by(period) %>%
+  summarise(value = first(value), .groups = 'drop')
+
+df_unemployment <- data_df %>% 
+  filter(indicator == "실업률 (%)") %>%
+  group_by(period) %>%
+  summarise(value = first(value), .groups = 'drop')
+
+df_employment <- data_df %>% 
+  filter(indicator == "고용률 (%)") %>%
+  group_by(period) %>%
+  summarise(value = first(value), .groups = 'drop')
+
+# plotly 그래프 생성 (이중 y축)
+plot_ly() %>%
+  # 취업자 수 (왼쪽 y축)
+  add_trace(
+    data = df_employed,
+    x = ~period,
+    y = ~value,
+    type = 'scatter',
+    mode = 'lines+markers',
+    name = '취업자 수',
+    line = list(color = '#1f77b4', width = 2.5),
+    marker = list(size = 6),
+    yaxis = 'y',
+    hovertemplate = paste(
+      '<b>취업자 수</b><br>',
+      '%{y:.0f}천명',
+      '<extra></extra>'
     )
   ) %>%
-  arrange(시점)
-
-# 20대 실업률 추이 그래프
-plot_ly(data = df_long_unemp,
-        x = ~시점,
-        y = ~실업률,
-        color = ~성별_label,
-        type = 'scatter',
-        mode = 'lines+markers',
-        line = list(width = 2.5),
-        marker = list(size = 6),
-        hovertemplate = paste(
-          '<b>%{fullData.name}</b><br>',
-          '실업률: %{y:.1f}%',
-          '<extra></extra>'
-        ),
-        customdata = ~분기라벨) %>% 
+  # 실업률 (오른쪽 y축)
+  add_trace(
+    data = df_unemployment,
+    x = ~period,
+    y = ~value,
+    type = 'scatter',
+    mode = 'lines+markers',
+    name = '실업률',
+    line = list(color = '#ff7f0e', width = 2.5),
+    marker = list(size = 6),
+    yaxis = 'y2',
+    hovertemplate = paste(
+      '<b>실업률</b><br>',
+      '%{y:.1f}%',
+      '<extra></extra>'
+    )
+  ) %>%
+  # 고용률 (오른쪽 y축)
+  add_trace(
+    data = df_employment,
+    x = ~period,
+    y = ~value,
+    type = 'scatter',
+    mode = 'lines+markers',
+    name = '고용률',
+    line = list(color = '#2ca02c', width = 2.5),
+    marker = list(size = 6),
+    yaxis = 'y2',
+    hovertemplate = paste(
+      '<b>고용률</b><br>',
+      '%{y:.1f}%',
+      '<extra></extra>'
+    )
+  ) %>%
+  # 레이아웃 설정
   layout(
     title = list(
-      text = "<b>20대(20-29세) 실업률 추이</b><br><sub>2019년 1분기 ~ 2025년 3분기</sub>",
+      text = "<b>15-29세 경제활동인구 총괄</b><br><sub>2010년 ~ 2024년</sub>",
       font = list(size = 18, family = "Malgun Gothic")
     ),
     xaxis = list(
-      title = "연도", 
-      tickformat = ".0f", 
-      dtick = 1,
+      title = "연도",
+      tickformat = ".0f",
+      dtick = 2,
       gridcolor = 'rgba(200,200,200,0.3)'
     ),
     yaxis = list(
-      title = "실업률 (%)",
+      title = "취업자 수 (천명)",
+      titlefont = list(color = '#1f77b4', family = "Malgun Gothic"),
+      tickfont = list(color = '#1f77b4'),
       gridcolor = 'rgba(200,200,200,0.3)'
+    ),
+    yaxis2 = list(
+      title = "실업률 / 고용률 (%)",
+      titlefont = list(color = '#ff7f0e', family = "Malgun Gothic"),
+      tickfont = list(color = '#ff7f0e'),
+      overlaying = 'y',
+      side = 'right',
+      showgrid = FALSE
     ),
     hovermode = 'closest',
     plot_bgcolor = 'rgba(240,240,240,0.3)',
     paper_bgcolor = 'white',
     font = list(family = "Malgun Gothic, sans-serif", size = 10),
     legend = list(
-      title = list(text = "<b>성별</b>"), 
-      orientation = "v", 
-      x = 1.02, 
+      title = list(text = "<b>지표</b>"),
+      orientation = "v",
+      x = 1.02,
       y = 1,
       bgcolor = 'rgba(255,255,255,0.9)',
       bordercolor = 'rgba(0,0,0,0.3)',
