@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="2024-22277 김태희">
 
-<title>앞으로의 취업시장 짚어보기 – IT 직종과 인구 변화</title>
+<title>미래를 이끌 산업분야 – IT 직종과 인구 변화</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -36,10 +35,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0df57c4fc48da5bda0e04ec16a0eb1bd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fa0cd6702236e5a3f1a908cafa2a0b84.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-2b33e5162d7a0b7ca21b3866e5331e21.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-fa0cd6702236e5a3f1a908cafa2a0b84.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,12 +71,194 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="site_libs/plotly-binding-4.11.0/plotly.js"></script>
+
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+<script src="site_libs/plotly-locale-ko-2.11.1/ko.js"></script>
+
 
 
 <link rel="stylesheet" href="styles/custom.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -118,7 +303,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">IT직종과 인구변화</a></li><li class="breadcrumb-item"><a href="./index.html">앞으로의 취업시장 짚어보기</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">IT직종과 인구변화</a></li><li class="breadcrumb-item"><a href="./chapter1-opportunity.html">미래를 이끌 산업분야</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="사이드바 전환" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="검색" onclick="window.quartoOpenSearch();">
@@ -128,7 +313,7 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -149,7 +334,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">앞으로의 취업시장 짚어보기</span></a>
   </div>
 </li>
@@ -161,7 +346,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter1-opportunity.html" class="sidebar-item-text sidebar-link">
+  <a href="./chapter1-opportunity.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">미래를 이끌 산업분야</span></a>
   </div>
 </li>
@@ -177,30 +362,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">목차</h2>
    
   <ul>
-  <li><a href="#시작하며" id="toc-시작하며" class="nav-link active" data-scroll-target="#시작하며">시작하며</a></li>
-  <li><a href="#오늘의-수업에서는" id="toc-오늘의-수업에서는" class="nav-link" data-scroll-target="#오늘의-수업에서는">오늘의 수업에서는</a></li>
+  <li><a href="#년2025년-실업률-및-취업자-추이" id="toc-년2025년-실업률-및-취업자-추이" class="nav-link active" data-scroll-target="#년2025년-실업률-및-취업자-추이">2019년~2025년 실업률 및 취업자 추이</a></li>
+  <li><a href="#데이터-산업-분야-인력-부족률" id="toc-데이터-산업-분야-인력-부족률" class="nav-link" data-scroll-target="#데이터-산업-분야-인력-부족률">데이터 산업 분야 인력 부족률</a>
+  <ul class="collapse">
+  <li><a href="#데이터-산업-분야-주요-발견점" id="toc-데이터-산업-분야-주요-발견점" class="nav-link" data-scroll-target="#데이터-산업-분야-주요-발견점">데이터 산업 분야 주요 발견점</a></li>
+  </ul></li>
+  <li><a href="#탐색해보기" id="toc-탐색해보기" class="nav-link" data-scroll-target="#탐색해보기">탐색해보기🤔</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">IT직종과 인구변화</a></li><li class="breadcrumb-item"><a href="./index.html">앞으로의 취업시장 짚어보기</a></li></ol></nav>
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">IT직종과 인구변화</a></li><li class="breadcrumb-item"><a href="./chapter1-opportunity.html">미래를 이끌 산업분야</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">앞으로의 취업시장 짚어보기</h1>
-<p class="subtitle lead">데이터로 보는 IT 직종과 인구 변화</p>
+<h1 class="title">미래를 이끌 산업분야</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">저자</div>
-    <div class="quarto-title-meta-contents">
-             <p>2024-22277 김태희 </p>
-          </div>
-  </div>
     
   
     
@@ -211,56 +394,90 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="시작하며" class="level2">
-<h2 data-anchor-id="시작하며">시작하며</h2>
-<p>&gt;두 기사를 보며 생각을 나누어 봅시다</p>
-<center>
-<p><strong><a href="https://www.chosun.com/opinion/editorial/2025/11/17/IYHJQIKFUZEUZDLY5KMPV54FTA/" target="_blank" style="color: purple; text-decoration: underline;">📰 조선일보 - IT 인력난과 인구 절벽</a></strong></p>
-<strong><a href="https://view.asiae.co.kr/article/2025062508402377108" target="_blank" style="color: navy; text-decoration: underline;">📰 아시아경제 - 청년 인구 감소와 취업 시장</a></strong>
-</center>
+<section id="년2025년-실업률-및-취업자-추이" class="level2">
+<h2 data-anchor-id="년2025년-실업률-및-취업자-추이">2019년~2025년 실업률 및 취업자 추이</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">20대 실업률 추이</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">정보통신업 취업자 추이</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-0d465d73b40b2c9b675f" style="width:100%;height:390px;"></div>
+<script type="application/json" data-for="htmlwidget-0d465d73b40b2c9b675f">{"x":{"visdat":{"49f04b403992":["function () ","plotlyVisDat"],"49f038ee23d5":["function () ","data"],"49f0105c4a84":["function () ","data"],"49f04681161e":["function () ","data"]},"cur_data":"49f04681161e","attrs":{"49f038ee23d5":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"scatter","mode":"lines+markers","name":"취업자 수","line":{"color":"#1f77b4","width":2.5},"marker":{"size":6},"yaxis":"y","hovertemplate":"<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","inherit":true},"49f0105c4a84":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"scatter","mode":"lines+markers","name":"실업률","line":{"color":"#ff7f0e","width":2.5},"marker":{"size":6},"yaxis":"y2","hovertemplate":"<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","inherit":true},"49f04681161e":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"scatter","mode":"lines+markers","name":"고용률","line":{"color":"#2ca02c","width":2.5},"marker":{"size":6},"yaxis":"y2","hovertemplate":"<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","inherit":true}},"layout":{"margin":{"b":60,"l":60,"t":80,"r":120},"title":{"text":"<b>15-29세 경제활동인구 총괄<\/b><br><sub>2010년 ~ 2024년<\/sub>","font":{"size":18,"family":"Malgun Gothic"}},"xaxis":{"domain":[0,1],"automargin":true,"title":"연도","tickformat":".0f","dtick":2,"gridcolor":"rgba(200,200,200,0.3)","type":"category","categoryorder":"array","categoryarray":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024","2024.10","2024.11","2024.12","2025.01","2025.02","2025.03","2025.04","2025.05","2025.06","2025.07","2025.08","2025.09","2025.10"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"취업자 수 (천명)","titlefont":{"color":"#1f77b4","family":"Malgun Gothic"},"tickfont":{"color":"#1f77b4"},"gridcolor":"rgba(200,200,200,0.3)"},"yaxis2":{"title":"실업률 / 고용률 (%)","titlefont":{"color":"#ff7f0e","family":"Malgun Gothic"},"tickfont":{"color":"#ff7f0e"},"overlaying":"y","side":"right","showgrid":false},"hovermode":"closest","plot_bgcolor":"rgba(240,240,240,0.3)","paper_bgcolor":"white","font":{"family":"Malgun Gothic, sans-serif","size":10},"legend":{"title":{"text":"<b>지표<\/b>"},"orientation":"v","x":1.02,"y":1,"bgcolor":"rgba(255,255,255,0.9)","bordercolor":"rgba(0,0,0,0.3)","borderwidth":1},"showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"locale":"ko","displayModeBar":true},"data":[{"x":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024","2024.10","2024.11","2024.12","2025.01","2025.02","2025.03","2025.04","2025.05","2025.06","2025.07","2025.08","2025.09","2025.10"],"y":[3930,3907,3837,3728,3802,3864,3908,3907,3904,3945,3763,3877,3996,3899,3755,3685,3668,3602,3609,3557,3569,3618,3682,3625,3633,3571,3564,3521],"type":"scatter","mode":"lines+markers","name":"취업자 수","line":{"color":"#1f77b4","width":2.5},"marker":{"color":"rgba(31,119,180,1)","size":6,"line":{"color":"rgba(31,119,180,1)"}},"yaxis":"y","hovertemplate":["<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>","<b>취업자 수<\/b><br> %{y:.0f}천명 <extra><\/extra>"],"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","frame":null},{"x":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024","2024.10","2024.11","2024.12","2025.01","2025.02","2025.03","2025.04","2025.05","2025.06","2025.07","2025.08","2025.09","2025.10"],"y":[7.9000000000000004,7.5999999999999996,7.5,8,9,9.0999999999999996,9.8000000000000007,9.8000000000000007,9.5,8.9000000000000004,9,7.7999999999999998,6.4000000000000004,5.9000000000000004,5.9000000000000004,5.5,5.5,5.9000000000000004,6,7,7.5,7.2999999999999998,6.5999999999999996,6.0999999999999996,5.5,4.9000000000000004,4.7999999999999998,5.2999999999999998],"type":"scatter","mode":"lines+markers","name":"실업률","line":{"color":"#ff7f0e","width":2.5},"marker":{"color":"rgba(255,127,14,1)","size":6,"line":{"color":"rgba(255,127,14,1)"}},"yaxis":"y2","hovertemplate":["<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>실업률<\/b><br> %{y:.1f}% <extra><\/extra>"],"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","frame":null},{"x":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024","2024.10","2024.11","2024.12","2025.01","2025.02","2025.03","2025.04","2025.05","2025.06","2025.07","2025.08","2025.09","2025.10"],"y":[40.399999999999999,40.399999999999999,40.299999999999997,39.5,40.5,41.200000000000003,41.700000000000003,42.100000000000001,42.700000000000003,43.5,42.200000000000003,44.200000000000003,46.600000000000001,46.5,46.100000000000001,45.600000000000001,45.5,44.700000000000003,44.799999999999997,44.299999999999997,44.5,45.299999999999997,46.200000000000003,45.600000000000001,45.799999999999997,45.100000000000001,45.100000000000001,44.600000000000001],"type":"scatter","mode":"lines+markers","name":"고용률","line":{"color":"#2ca02c","width":2.5},"marker":{"color":"rgba(44,160,44,1)","size":6,"line":{"color":"rgba(44,160,44,1)"}},"yaxis":"y2","hovertemplate":["<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>","<b>고용률<\/b><br> %{y:.1f}% <extra><\/extra>"],"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-394ba310fb43162e8ab4" style="width:100%;height:390px;"></div>
+<script type="application/json" data-for="htmlwidget-394ba310fb43162e8ab4">{"x":{"visdat":{"49f02ef07402":["function () ","plotlyVisDat"]},"cur_data":"49f02ef07402","attrs":{"49f02ef07402":{"x":{},"y":{},"mode":"lines+markers","line":{"width":2.5,"color":"#1f77b4"},"marker":{"size":6,"color":"#1f77b4"},"hovertemplate":"<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","customdata":{},"name":"정보통신업","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":60,"l":60,"t":80,"r":60},"title":{"text":"<b>정보통신업 취업자 수 추이<\/b><br><sub>2019년 1분기 ~ 2025년 3분기<\/sub>","font":{"size":18,"family":"Malgun Gothic"}},"xaxis":{"domain":[0,1],"automargin":true,"title":"연도","tickformat":".0f","dtick":1,"gridcolor":"rgba(200,200,200,0.3)"},"yaxis":{"domain":[0,1],"automargin":true,"title":"취업자 수 (천명)","separatethousands":true,"gridcolor":"rgba(200,200,200,0.3)"},"hovermode":"x unified","plot_bgcolor":"rgba(240,240,240,0.3)","paper_bgcolor":"white","font":{"family":"Malgun Gothic, sans-serif","size":10},"showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"locale":"ko","displayModeBar":true},"data":[{"x":[2019,2019.25,2019.5,2019.75,2020,2020.25,2020.5,2020.75,2021,2021.25,2021.5,2021.75,2022,2022.25,2022.5,2022.75,2023,2023.25,2023.5,2023.75,2024,2024.25,2024.5,2024.75,2025,2025.25,2025.5],"y":[874,861,851,856,848,858,842,838,852,900,915,935,957,986,991,988,1018,1034,1038,1060,1083,1098,1134,1124,1152,1144,1129],"mode":"lines+markers","line":{"color":"#1f77b4","width":2.5},"marker":{"color":"#1f77b4","size":6,"line":{"color":"rgba(31,119,180,1)"}},"hovertemplate":["<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>","<b>정보통신업<\/b><br> 시점: %{customdata[0]}<br> 취업자 수: %{y:,.0f}천명 <extra><\/extra>"],"customdata":["2019년 1분기","2019년 2분기","2019년 3분기","2019년 4분기","2020년 1분기","2020년 2분기","2020년 3분기","2020년 4분기","2021년 1분기","2021년 2분기","2021년 3분기","2021년 4분기","2022년 1분기","2022년 2분기","2022년 3분기","2022년 4분기","2023년 1분기","2023년 2분기","2023년 3분기","2023년 4분기","2024년 1분기","2024년 2분기","2024년 3분기","2024년 4분기","2025년 1분기","2025년 2분기","2025년 3분기"],"name":"정보통신업","type":"scatter","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="오늘의-수업에서는" class="level2">
-<h2 data-anchor-id="오늘의-수업에서는">오늘의 수업에서는</h2>
-<p><strong>KOSIS(국가통계포털) 데이터</strong>를 활용하여 IT 직종 수요 증가와 인구 감소의 관계를 탐구합니다.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="데이터-산업-분야-인력-부족률" class="level2">
+<h2 data-anchor-id="데이터-산업-분야-인력-부족률">데이터 산업 분야 인력 부족률</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">인력 부족률 추이</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">직무별 부족률</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">2024년 현황</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-131993ecab44bf917b75" style="width:100%;height:390px;"></div>
+<script type="application/json" data-for="htmlwidget-131993ecab44bf917b75">{"x":{"visdat":{"49f04ebb561c":["function () ","plotlyVisDat"]},"cur_data":"49f04ebb561c","attrs":{"49f04ebb561c":{"x":{},"y":{},"mode":"lines+markers","line":{"color":"#FF6B6B","width":4},"marker":{"size":10,"color":"#FF6B6B"},"text":{},"hovertemplate":"<b>%{x}년<\/b><br> 인력 부족률: <b>%{y:.1f}%<\/b><br> <extra><\/extra>","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":80,"l":80,"t":100,"r":50},"title":{"text":"<b>데이터 산업 인력 부족률 추이<\/b>","font":{"size":20,"family":"Malgun Gothic","color":"#2C3E50"}},"xaxis":{"domain":[0,1],"automargin":true,"title":"<b>연도<\/b>","dtick":1,"gridcolor":"rgba(200,200,200,0.3)","titlefont":{"size":14}},"yaxis":{"domain":[0,1],"automargin":true,"title":"<b>인력 부족률 (%)<\/b>","gridcolor":"rgba(200,200,200,0.3)","range":[0,16.199999999999999],"titlefont":{"size":14}},"plot_bgcolor":"rgba(240,245,250,0.8)","paper_bgcolor":"white","font":{"family":"Malgun Gothic, sans-serif","size":12},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"locale":"ko","displayModeBar":false},"data":[{"x":[2016,2017,2018,2019,2020,2021,2022,2023,2024],"y":[6,5.9000000000000004,10.300000000000001,8.6999999999999993,10.6,12.199999999999999,11.5,12.699999999999999,13.199999999999999],"mode":"lines+markers","line":{"color":"#FF6B6B","width":4},"marker":{"color":"#FF6B6B","size":10,"line":{"color":"rgba(31,119,180,1)"}},"text":["6%","5.9%","10.3%","8.7%","10.6%","12.2%","11.5%","12.7%","13.2%"],"hovertemplate":["<b>%{x}년<\/b><br> 인력 부족률: <b>%{y:.1f}%<\/b><br> <extra><\/extra>","<b>%{x}년<\/b><br> 인력 부족률: <b>%{y:.1f}%<\/b><br> <extra><\/extra>","<b>%{x}년<\/b><br> 인력 부족률: <b>%{y:.1f}%<\/b><br> <extra><\/extra>","<b>%{x}년<\/b><br> 인력 부족률: <b>%{y:.1f}%<\/b><br> <extra><\/extra>","<b>%{x}년<\/b><br> 인력 부족률: <b>%{y:.1f}%<\/b><br> <extra><\/extra>","<b>%{x}년<\/b><br> 인력 부족률: <b>%{y:.1f}%<\/b><br> <extra><\/extra>","<b>%{x}년<\/b><br> 인력 부족률: <b>%{y:.1f}%<\/b><br> <extra><\/extra>","<b>%{x}년<\/b><br> 인력 부족률: <b>%{y:.1f}%<\/b><br> <extra><\/extra>","<b>%{x}년<\/b><br> 인력 부족률: <b>%{y:.1f}%<\/b><br> <extra><\/extra>"],"type":"scatter","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
-<div class="callout-title-container flex-fill">
-탐구 질문
 </div>
 </div>
-<div class="callout-body-container callout-body">
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-a408d72fe82d0d8ac088" style="width:100%;height:454px;"></div>
+<script type="application/json" data-for="htmlwidget-a408d72fe82d0d8ac088">{"x":{"visdat":{"49f011792519":["function () ","plotlyVisDat"]},"cur_data":"49f011792519","attrs":{"49f011792519":{"x":{},"y":{},"orientation":"h","marker":{"color":{},"colorscale":[["0","rgb(255,245,235)"],["0.5","rgb(254,201,129)"],["1","rgb(227,74,51)"]],"showscale":false},"text":{},"textposition":"outside","hovertemplate":"<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","frame":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":120,"l":180,"t":100,"r":80},"title":{"text":"<b>데이터 직무별 인력 부족률<\/b>","font":{"size":20,"family":"Malgun Gothic","color":"#2C3E50"}},"xaxis":{"domain":[0,1],"automargin":true,"title":"<b>인력 부족률 (%)<\/b>","range":[0,41.5],"gridcolor":"rgba(200,200,200,0.3)","titlefont":{"size":14}},"yaxis":{"domain":[0,1],"automargin":true,"title":"","titlefont":{"size":14},"type":"category","categoryorder":"array","categoryarray":["데이터베이스 관리자","데이터 아키텍트","데이터 기획자","데이터 엔지니어","데이터 컨설턴트","데이터 개발자","데이터 분석가","데이터 과학자"]},"plot_bgcolor":"rgba(240,245,250,0.8)","paper_bgcolor":"white","font":{"family":"Malgun Gothic, sans-serif","size":12},"hovermode":"closest","showlegend":false,"sliders":[{"currentvalue":{"prefix":"연도: ","xanchor":"right","font":{"size":16,"color":"#E74C3C"}},"steps":[{"method":"animate","args":[["2016"],{"transition":{"duration":300,"easing":"elastic"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2016","value":"2016"},{"method":"animate","args":[["2017"],{"transition":{"duration":300,"easing":"elastic"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2017","value":"2017"},{"method":"animate","args":[["2018"],{"transition":{"duration":300,"easing":"elastic"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2018","value":"2018"},{"method":"animate","args":[["2019"],{"transition":{"duration":300,"easing":"elastic"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2019","value":"2019"},{"method":"animate","args":[["2020"],{"transition":{"duration":300,"easing":"elastic"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2020","value":"2020"},{"method":"animate","args":[["2021"],{"transition":{"duration":300,"easing":"elastic"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2021","value":"2021"},{"method":"animate","args":[["2022"],{"transition":{"duration":300,"easing":"elastic"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2022","value":"2022"},{"method":"animate","args":[["2023"],{"transition":{"duration":300,"easing":"elastic"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2023","value":"2023"},{"method":"animate","args":[["2024"],{"transition":{"duration":300,"easing":"elastic"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2024","value":"2024"}],"visible":true,"pad":{"t":50}}],"updatemenus":[{"type":"buttons","direction":"right","showactive":false,"y":0,"x":0,"yanchor":"top","xanchor":"right","pad":{"t":60,"r":5},"buttons":[{"label":"Play","method":"animate","args":[null,{"fromcurrent":true,"mode":"immediate","transition":{"duration":300,"easing":"elastic"},"frame":{"duration":500,"redraw":false}}]}]}]},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"locale":"ko","displayModeBar":false},"data":[{"x":[8.4000000000000004,13.199999999999999,3.3999999999999999,7.7000000000000002,6.7000000000000002,5.7000000000000002,3.2999999999999998,1.1000000000000001],"y":["데이터 개발자","데이터 과학자","데이터 기획자","데이터 분석가","데이터 아키텍트","데이터 엔지니어","데이터 컨설턴트","데이터베이스 관리자"],"orientation":"h","marker":{"color":[8.4000000000000004,13.199999999999999,3.3999999999999999,7.7000000000000002,6.7000000000000002,5.7000000000000002,3.2999999999999998,1.1000000000000001],"colorscale":[["0","rgb(255,245,235)"],["0.5","rgb(254,201,129)"],["1","rgb(227,74,51)"]],"showscale":false,"line":{"color":"rgba(31,119,180,1)"}},"text":["8.4%","13.2%","3.4%","7.7%","6.7%","5.7%","3.3%","1.1%"],"textposition":["outside","outside","outside","outside","outside","outside","outside","outside"],"hovertemplate":["<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>"],"frame":"2016","type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"frames":[{"name":"2016","data":[{"x":[8.4000000000000004,13.199999999999999,3.3999999999999999,7.7000000000000002,6.7000000000000002,5.7000000000000002,3.2999999999999998,1.1000000000000001],"y":["데이터 개발자","데이터 과학자","데이터 기획자","데이터 분석가","데이터 아키텍트","데이터 엔지니어","데이터 컨설턴트","데이터베이스 관리자"],"orientation":"h","marker":{"color":[8.4000000000000004,13.199999999999999,3.3999999999999999,7.7000000000000002,6.7000000000000002,5.7000000000000002,3.2999999999999998,1.1000000000000001],"colorscale":[["0","rgb(255,245,235)"],["0.5","rgb(254,201,129)"],["1","rgb(227,74,51)"]],"showscale":false,"line":{"color":"rgba(31,119,180,1)"}},"text":["8.4%","13.2%","3.4%","7.7%","6.7%","5.7%","3.3%","1.1%"],"textposition":["outside","outside","outside","outside","outside","outside","outside","outside"],"hovertemplate":["<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>"],"frame":"2016","type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2017","data":[{"x":[8.0999999999999996,11,4,7.5999999999999996,6.5999999999999996,5.5999999999999996,3.7000000000000002,1.2],"y":["데이터 개발자","데이터 과학자","데이터 기획자","데이터 분석가","데이터 아키텍트","데이터 엔지니어","데이터 컨설턴트","데이터베이스 관리자"],"orientation":"h","marker":{"color":[8.0999999999999996,11,4,7.5999999999999996,6.5999999999999996,5.5999999999999996,3.7000000000000002,1.2],"colorscale":[["0","rgb(255,245,235)"],["0.5","rgb(254,201,129)"],["1","rgb(227,74,51)"]],"showscale":false,"line":{"color":"rgba(31,119,180,1)"}},"text":["8.1%","11%","4%","7.6%","6.6%","5.6%","3.7%","1.2%"],"textposition":["outside","outside","outside","outside","outside","outside","outside","outside"],"hovertemplate":["<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>"],"frame":"2017","type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2018","data":[{"x":[9,19.800000000000001,10.699999999999999,21.100000000000001,10.800000000000001,6.5999999999999996,16,7.4000000000000004],"y":["데이터 개발자","데이터 과학자","데이터 기획자","데이터 분석가","데이터 아키텍트","데이터 엔지니어","데이터 컨설턴트","데이터베이스 관리자"],"orientation":"h","marker":{"color":[9,19.800000000000001,10.699999999999999,21.100000000000001,10.800000000000001,6.5999999999999996,16,7.4000000000000004],"colorscale":[["0","rgb(255,245,235)"],["0.5","rgb(254,201,129)"],["1","rgb(227,74,51)"]],"showscale":false,"line":{"color":"rgba(31,119,180,1)"}},"text":["9%","19.8%","10.7%","21.1%","10.8%","6.6%","16%","7.4%"],"textposition":["outside","outside","outside","outside","outside","outside","outside","outside"],"hovertemplate":["<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>"],"frame":"2018","type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2019","data":[{"x":[13.5,34.200000000000003,4,14.800000000000001,1.3,5.0999999999999996,2.7999999999999998,1.3999999999999999],"y":["데이터 개발자","데이터 과학자","데이터 기획자","데이터 분석가","데이터 아키텍트","데이터 엔지니어","데이터 컨설턴트","데이터베이스 관리자"],"orientation":"h","marker":{"color":[13.5,34.200000000000003,4,14.800000000000001,1.3,5.0999999999999996,2.7999999999999998,1.3999999999999999],"colorscale":[["0","rgb(255,245,235)"],["0.5","rgb(254,201,129)"],["1","rgb(227,74,51)"]],"showscale":false,"line":{"color":"rgba(31,119,180,1)"}},"text":["13.5%","34.2%","4%","14.8%","1.3%","5.1%","2.8%","1.4%"],"textposition":["outside","outside","outside","outside","outside","outside","outside","outside"],"hovertemplate":["<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>"],"frame":"2019","type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2020","data":[{"x":[14.5,31.399999999999999,5.5,14.5,4.2000000000000002,9,10.800000000000001,3],"y":["데이터 개발자","데이터 과학자","데이터 기획자","데이터 분석가","데이터 아키텍트","데이터 엔지니어","데이터 컨설턴트","데이터베이스 관리자"],"orientation":"h","marker":{"color":[14.5,31.399999999999999,5.5,14.5,4.2000000000000002,9,10.800000000000001,3],"colorscale":[["0","rgb(255,245,235)"],["0.5","rgb(254,201,129)"],["1","rgb(227,74,51)"]],"showscale":false,"line":{"color":"rgba(31,119,180,1)"}},"text":["14.5%","31.4%","5.5%","14.5%","4.2%","9%","10.8%","3%"],"textposition":["outside","outside","outside","outside","outside","outside","outside","outside"],"hovertemplate":["<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>"],"frame":"2020","type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2021","data":[{"x":[16,36.5,7.2999999999999998,15.6,4.5999999999999996,10.1,10.6,4.5],"y":["데이터 개발자","데이터 과학자","데이터 기획자","데이터 분석가","데이터 아키텍트","데이터 엔지니어","데이터 컨설턴트","데이터베이스 관리자"],"orientation":"h","marker":{"color":[16,36.5,7.2999999999999998,15.6,4.5999999999999996,10.1,10.6,4.5],"colorscale":[["0","rgb(255,245,235)"],["0.5","rgb(254,201,129)"],["1","rgb(227,74,51)"]],"showscale":false,"line":{"color":"rgba(31,119,180,1)"}},"text":["16%","36.5%","7.3%","15.6%","4.6%","10.1%","10.6%","4.5%"],"textposition":["outside","outside","outside","outside","outside","outside","outside","outside"],"hovertemplate":["<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>"],"frame":"2021","type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2022","data":[{"x":[14.699999999999999,34.5,9.5999999999999996,14.6,4.2999999999999998,8.1999999999999993,10.6,4.9000000000000004],"y":["데이터 개발자","데이터 과학자","데이터 기획자","데이터 분석가","데이터 아키텍트","데이터 엔지니어","데이터 컨설턴트","데이터베이스 관리자"],"orientation":"h","marker":{"color":[14.699999999999999,34.5,9.5999999999999996,14.6,4.2999999999999998,8.1999999999999993,10.6,4.9000000000000004],"colorscale":[["0","rgb(255,245,235)"],["0.5","rgb(254,201,129)"],["1","rgb(227,74,51)"]],"showscale":false,"line":{"color":"rgba(31,119,180,1)"}},"text":["14.7%","34.5%","9.6%","14.6%","4.3%","8.2%","10.6%","4.9%"],"textposition":["outside","outside","outside","outside","outside","outside","outside","outside"],"hovertemplate":["<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>"],"frame":"2022","type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2023","data":[{"x":[15.9,35.200000000000003,10.5,13.9,5.0999999999999996,10.9,11,6.2999999999999998],"y":["데이터 개발자","데이터 과학자","데이터 기획자","데이터 분석가","데이터 아키텍트","데이터 엔지니어","데이터 컨설턴트","데이터베이스 관리자"],"orientation":"h","marker":{"color":[15.9,35.200000000000003,10.5,13.9,5.0999999999999996,10.9,11,6.2999999999999998],"colorscale":[["0","rgb(255,245,235)"],["0.5","rgb(254,201,129)"],["1","rgb(227,74,51)"]],"showscale":false,"line":{"color":"rgba(31,119,180,1)"}},"text":["15.9%","35.2%","10.5%","13.9%","5.1%","10.9%","11%","6.3%"],"textposition":["outside","outside","outside","outside","outside","outside","outside","outside"],"hovertemplate":["<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>"],"frame":"2023","type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]},{"name":"2024","data":[{"x":[16.300000000000001,33.799999999999997,11.1,14.5,5,11.800000000000001,11.9,7.2999999999999998],"y":["데이터 개발자","데이터 과학자","데이터 기획자","데이터 분석가","데이터 아키텍트","데이터 엔지니어","데이터 컨설턴트","데이터베이스 관리자"],"orientation":"h","marker":{"color":[16.300000000000001,33.799999999999997,11.1,14.5,5,11.800000000000001,11.9,7.2999999999999998],"colorscale":[["0","rgb(255,245,235)"],["0.5","rgb(254,201,129)"],["1","rgb(227,74,51)"]],"showscale":false,"line":{"color":"rgba(31,119,180,1)"}},"text":["16.3%","33.8%","11.1%","14.5%","5%","11.8%","11.9%","7.3%"],"textposition":["outside","outside","outside","outside","outside","outside","outside","outside"],"hovertemplate":["<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>"],"frame":"2024","type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","visible":true}],"traces":[0]}],"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-483ef1b927dc7058c66e" style="width:100%;height:454px;"></div>
+<script type="application/json" data-for="htmlwidget-483ef1b927dc7058c66e">{"x":{"visdat":{"49f07e195f37":["function () ","plotlyVisDat"]},"cur_data":"49f07e195f37","attrs":{"49f07e195f37":{"y":{},"x":{},"orientation":"h","marker":{"color":{},"colorscale":[["0","rgb(255,245,235)"],["0.3","rgb(254,201,129)"],["0.6","rgb(241,128,74)"],["1","rgb(227,74,51)"]],"line":{"color":"rgb(8,48,107)","width":1.5}},"text":{},"textposition":"outside","textfont":{"size":14,"color":"#2C3E50"},"hovertemplate":"<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":80,"l":180,"t":120,"r":80},"title":{"text":"<b>2024년 데이터 직무별 인력 부족률<\/b>","font":{"size":20,"family":"Malgun Gothic","color":"#2C3E50"}},"xaxis":{"domain":[0,1],"automargin":true,"title":"<b>인력 부족률 (%)<\/b>","range":[0,38.799999999999997],"gridcolor":"rgba(200,200,200,0.3)","titlefont":{"size":14}},"yaxis":{"domain":[0,1],"automargin":true,"title":"","titlefont":{"size":14},"type":"category","categoryorder":"array","categoryarray":["데이터 아키텍트","데이터베이스 관리자","데이터 기획자","데이터 엔지니어","데이터 컨설턴트","데이터 분석가","데이터 개발자","데이터 과학자"]},"plot_bgcolor":"rgba(240,245,250,0.8)","paper_bgcolor":"white","font":{"family":"Malgun Gothic, sans-serif","size":13},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"locale":"ko","displayModeBar":false},"data":[{"y":["데이터 과학자","데이터 개발자","데이터 분석가","데이터 컨설턴트","데이터 엔지니어","데이터 기획자","데이터베이스 관리자","데이터 아키텍트"],"x":[33.799999999999997,16.300000000000001,14.5,11.9,11.800000000000001,11.1,7.2999999999999998,5],"orientation":"h","marker":{"color":[33.799999999999997,16.300000000000001,14.5,11.9,11.800000000000001,11.1,7.2999999999999998,5],"colorscale":[["0","rgb(255,245,235)"],["0.3","rgb(254,201,129)"],["0.6","rgb(241,128,74)"],["1","rgb(227,74,51)"]],"line":{"color":"rgb(8,48,107)","width":1.5}},"text":["<b>33.8%<\/b>","<b>16.3%<\/b>","<b>14.5%<\/b>","<b>11.9%<\/b>","<b>11.8%<\/b>","<b>11.1%<\/b>","<b>7.3%<\/b>","<b>5%<\/b>"],"textposition":["outside","outside","outside","outside","outside","outside","outside","outside"],"textfont":{"size":14,"color":"#2C3E50"},"hovertemplate":["<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>","<b>%{y}<\/b><br> 인력 부족률: <b>%{x:.1f}%<\/b><br> <extra><\/extra>"],"type":"bar","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="데이터-산업-분야-주요-발견점" class="level3">
+<h3 data-anchor-id="데이터-산업-분야-주요-발견점">데이터 산업 분야 주요 발견점</h3>
 <ul>
-<li>IT 직종은 정말 수요가 늘어나고 있을까?</li>
-<li>다른 직종과 비교하면 어떨까?</li>
-<li>인구 감소가 IT 취업 시장에 어떤 영향을 미칠까?</li>
-<li>우리에게 어떤 기회와 도전이 있을까?</li>
+<li><strong>2024년 기준 전체 평균 인력 부족률</strong>: 13.2%</li>
+<li><strong>2016~2024년 평균</strong>: 10.1%</li>
+<li><strong>가장 부족한 직무</strong>: 데이터 과학자 (33.8%)</li>
+<li><strong>증가 추세</strong>: 2016년 6% → 2024년 13.2% (7.2%p 변화)</li>
 </ul>
+<hr>
+</section>
+</section>
+<section id="탐색해보기" class="level2">
+<h2 data-anchor-id="탐색해보기">탐색해보기🤔</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">질문 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">질문 2</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p><strong>여러분이 관심있는 직종의 수요는 어떤가요?</strong></p>
+여러분의 생각을 적어보세요:
+<textarea style="width:100%; height:100px; padding:10px; border:2px solid #ddd; border-radius:5px;" placeholder="내 생각을 여기에 적어보세요..."></textarea>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p><strong>여러분이 관심있는 직종의 수요에 영향을 미치는 요인은 어떤 게 있을까요?</strong></p>
+여러분의 생각을 적어보세요:
+<textarea style="width:100%; height:100px; padding:10px; border:2px solid #ddd; border-radius:5px;" placeholder="내 생각을 여기에 적어보세요..."></textarea>
 </div>
 </div>
-<div class="grid" cols="3" data-gutter="2" style="text-align: center;">
-<div class="g-col">
-<div class="cardbox">
-<h3>
-Chapter 1
-</h3>
-<p><b>인구 감소 충격</b><br> 생산인구 데이터 탐색</p>
 </div>
-</div>
-<div class="g-col">
-<div class="cardbox">
-<h3>
-Chapter 2
-</h3>
-<p><b>미래를 이끌 산업분야</b><br> 2019년~2025년<br>실업률 및 취업자 추이<br> 데이터 산업 분야 인력 부족률</p>
-</div>
-</div>
-</div>
-<center>
-<strong><a href="./chapter0-인구그래프.html">인구그래프 →</a></strong>
-</center>
+<hr>
 
 
 </section>
@@ -268,6 +485,19 @@ Chapter 2
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
